@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: PS Medienoptimierung
-Plugin URI: https://nerdservice.de/
+Plugin URI: https://psource.eimen.net/
 Description: Local image optimization for WordPress media without external API dependencies.
 Author: NerdService
-Version: 2.7.8
+Version: 1.0.0
 Author URI: https://nerdservice.de/
 Text Domain: ps-medienoptimierung
 WDP ID: 912164
@@ -31,7 +31,7 @@ WDP ID: 912164
  * Constants
  */
 $prefix  = 'PS_SMUSH_';
-$version = '2.7.8';
+$version = '1.0.0';
 
 // Local fork: do not force-disable other Smush variants.
 

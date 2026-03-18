@@ -1,9 +1,9 @@
 === PS Medienoptimierung ===
 Plugin Name: PS Medienoptimierung
 Version: 1.0.0
-Author: NerdService
-Author URI: https://nerdservice.de/
-Contributors: nerdservice
+Author: PSOURCE
+Author URI: https://psource.eimen.net/
+Contributors: DerNerd
 Tags: bilder, optimierung, komprimierung, performance, medienbibliothek, webp, wordpress
 Requires at least: 6.0
 Tested up to: 6.8
