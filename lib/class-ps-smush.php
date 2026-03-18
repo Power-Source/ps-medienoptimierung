@@ -1882,7 +1882,7 @@ if ( ! class_exists( 'WpSmush' ) ) {
 		 *
 		 * @return bool
 		 */
-		function show_resmush( $id = '', $ps_smush_data ) {
+		function show_resmush( $id = '', $ps_smush_data = array() ) {
 			global $wpsmush_resize;
 			//Resmush: Show resmush link, Check if user have enabled smushing the original and full image was skipped
 			//Or: If keep exif is unchecked and the smushed image have exif

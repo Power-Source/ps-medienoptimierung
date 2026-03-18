@@ -857,7 +857,7 @@ if ( ! class_exists( 'WpSmushDir' ) ) {
 		 *
 		 * @return Image array or Empty array
 		 */
-		function get_image( $id = '', $path = '', $images ) {
+		function get_image( $id = '', $path = '', $images = array() ) {
 			foreach ( $images as $key => $val ) {
 				if ( ! empty( $id ) && $val['id'] == $id ) {
 					return $images[ $key ];
