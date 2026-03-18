@@ -3,7 +3,7 @@
 /**
  * Handles all the stats related functions
  *
- * @package WP Smush
+ * @package PS Smush
  * @subpackage NextGen Gallery
  * @version 1.0
  *
@@ -30,13 +30,13 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 			add_action( 'ngg_added_new_image', array( $this, 'image_count' ), 10 );
 
 			//Update images list in cache
-			add_action( 'wp_smush_nextgen_image_stats', array( $this, 'update_cache' ) );
+			add_action( 'ps_smush_nextgen_image_stats', array( $this, 'update_cache' ) );
 
 			//Add the resizing stats to Global stats
-			add_action( 'wp_smush_image_nextgen_resized',  array( $this, 'update_stats' ), '', 2 );
+			add_action( 'ps_smush_image_nextgen_resized',  array( $this, 'update_stats' ), '', 2 );
 
 			//Get the stats for single image, update the global stats
-			add_action( 'wp_smush_nextgen_image_stats', array( $this, 'update_stats' ), '', 2 );
+			add_action( 'ps_smush_nextgen_image_stats', array( $this, 'update_stats' ), '', 2 );
 		}
 
 		/**
@@ -59,8 +59,8 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 		 * WP_Error object otherwise.
 		 */
 		function total_count( $force_refresh = false, $return_ids = false ) {
-			// Check for the  wp_smush_images in the 'nextgen' group.
-			$attachment_ids = wp_cache_get( 'wp_smush_images', 'nextgen' );
+			// Check for the  ps_smush_images in the 'nextgen' group.
+			$attachment_ids = wp_cache_get( 'ps_smush_images', 'nextgen' );
 
 			// If nothing is found, build the object.
 			if ( true === $force_refresh || false === $attachment_ids ) {
@@ -69,7 +69,7 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 
 				if ( ! is_wp_error( $attachment_ids ) ) {
 					// In this case we don't need a timed cache expiration.
-					wp_cache_set( 'wp_smush_images', $attachment_ids, 'nextgen' );
+					wp_cache_set( 'ps_smush_images', $attachment_ids, 'nextgen' );
 				}
 			}
 
@@ -103,15 +103,15 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 				return false;
 			}
 
-			// Check for the  wp_smush_images_smushed in the 'nextgen' group.
-			$images = wp_cache_get( 'wp_smush_images_' . $type, 'nextgen' );
+			// Check for the  ps_smush_images_smushed in the 'nextgen' group.
+			$images = wp_cache_get( 'ps_smush_images_' . $type, 'nextgen' );
 
 			// If nothing is found, build the object.
 			if ( ! $images || $force_update ) {
 				// Query Attachments for meta key
 				while ( $attachments = $wpdb->get_results( "SELECT pid, meta_data FROM $wpdb->nggpictures LIMIT $offset, $limit" ) ) {
 					foreach ( $attachments as $attachment ) {
-						//Check if it has `wp_smush` key
+						//Check if it has `ps_smush` key
 						if ( class_exists( 'Ngg_Serializable' ) ) {
 							$serializer = new Ngg_Serializable();
 							$meta       = $serializer->unserialize( $attachment->meta_data );
@@ -126,8 +126,8 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 							$meta->pid = $attachment->pid;
 						}
 
-						//Check meta for wp_smush
-						if ( ! is_array( $meta ) || empty( $meta['wp_smush'] ) ) {
+						//Check meta for ps_smush
+						if ( ! is_array( $meta ) || empty( $meta['ps_smush'] ) ) {
 							$unsmushed_images[ $attachment->pid ] = $meta;
 							continue;
 						}
@@ -137,10 +137,10 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 					$offset += $limit;
 				}
 				if ( ! empty( $smushed_images ) ) {
-					wp_cache_set( 'wp_smush_images_smushed', $smushed_images, 'nextgen', 300 );
+					wp_cache_set( 'ps_smush_images_smushed', $smushed_images, 'nextgen', 300 );
 				}
 				if ( ! empty( $unsmushed_images ) ) {
-					wp_cache_set( 'wp_smush_images_unsmushed', $unsmushed_images, 'nextgen', 300 );
+					wp_cache_set( 'ps_smush_images_unsmushed', $unsmushed_images, 'nextgen', 300 );
 				}
 			}
 
@@ -167,7 +167,7 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 		 * Display the smush stats for the image
 		 *
 		 * @param $pid Image Id stored in nextgen table
-		 * @param bool $wp_smush_data Stats, stored after smushing the image
+		 * @param bool $ps_smush_data Stats, stored after smushing the image
 		 * @param string $image_type Used for determining if not gif, to show the Super Smush button
 		 * @param bool $text_only Return only text instead of button (Useful for Ajax)
 		 * @param bool $echo Whether to echo the stats or not
@@ -176,27 +176,27 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 		 *
 		 * @return bool|null|string|void
 		 */
-		function show_stats( $pid, $wp_smush_data = false, $image_type = '', $text_only = false, $echo = true ) {
+		function show_stats( $pid, $ps_smush_data = false, $image_type = '', $text_only = false, $echo = true ) {
 			global $WpSmush, $wpsmushnextgenadmin, $wpsmush_settings;
-			if ( empty( $wp_smush_data ) ) {
+			if ( empty( $ps_smush_data ) ) {
 				return false;
 			}
 			$button_txt  = $stats = '';
 			$show_button = $show_resmush = $show_restore = false;
 
-			$bytes          = isset( $wp_smush_data['stats']['bytes'] ) ? $wp_smush_data['stats']['bytes'] : 0;
+			$bytes          = isset( $ps_smush_data['stats']['bytes'] ) ? $ps_smush_data['stats']['bytes'] : 0;
 			$bytes_readable = ! empty( $bytes ) ? size_format( $bytes, 1 ) : '';
-			$percent        = isset( $wp_smush_data['stats']['percent'] ) ? $wp_smush_data['stats']['percent'] : 0;
+			$percent        = isset( $ps_smush_data['stats']['percent'] ) ? $ps_smush_data['stats']['percent'] : 0;
 			$percent        = $percent < 0 ? 0 : $percent;
 
-			if ( isset( $wp_smush_data['stats']['size_before'] ) && $wp_smush_data['stats']['size_before'] == 0 && ! empty( $wp_smush_data['sizes'] ) ) {
+			if ( isset( $ps_smush_data['stats']['size_before'] ) && $ps_smush_data['stats']['size_before'] == 0 && ! empty( $ps_smush_data['sizes'] ) ) {
 				$status_txt  = __( 'Already Optimized', 'ps-medienoptimierung' );
 			} else {
 				if ( $bytes == 0 || $percent == 0 ) {
 					$status_txt = __( 'Already Optimized', 'ps-medienoptimierung' );
 
 					//Add resmush option if needed
-					$show_resmush = $this->show_resmush( $show_resmush, $wp_smush_data );
+					$show_resmush = $this->show_resmush( $show_resmush, $ps_smush_data );
 					if ( $show_resmush ) {
 						$status_txt .= '<br />' . $WpSmush->get_resmsuh_link( $pid, 'nextgen' );
 					}
@@ -204,14 +204,14 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 				} elseif ( ! empty( $percent ) && ! empty( $bytes_readable ) ) {
 					$status_txt = sprintf( __( "Reduced by %s (  %01.1f%% )", 'ps-medienoptimierung' ), $bytes_readable, number_format_i18n( $percent, 2, '.', '' ) );
 
-					$show_resmush = $this->show_resmush( $show_resmush, $wp_smush_data );
+					$show_resmush = $this->show_resmush( $show_resmush, $ps_smush_data );
 
 					if ( $show_resmush ) {
 						$status_txt .= '<br />' . $WpSmush->get_resmsuh_link( $pid, 'nextgen' );
 					}
 
 					//Restore Image: Check if we need to show the restore image option
-					$show_restore = $this->show_restore_option( $pid, $wp_smush_data );
+					$show_restore = $this->show_restore_option( $pid, $ps_smush_data );
 
 					if ( $show_restore ) {
 						if ( $show_resmush ) {
@@ -224,7 +224,7 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 						$status_txt .= $WpSmush->get_restore_link( $pid, 'nextgen' );
 					}
 					//Show detailed stats if available
-					if ( ! empty( $wp_smush_data['sizes'] ) ) {
+					if ( ! empty( $ps_smush_data['sizes'] ) ) {
 						if ( $show_resmush || $show_restore ) {
 							//Show Separator
 							$status_txt .= ' | ';
@@ -250,7 +250,7 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 						$full_image = $storage->get_image_abspath( $image, 'full' );
 
 						//Stats
-						$stats = $this->get_detailed_stats( $pid, $wp_smush_data, array( 'sizes' => $sizes ), $full_image );
+						$stats = $this->get_detailed_stats( $pid, $ps_smush_data, array( 'sizes' => $sizes ), $full_image );
 
 						if ( ! $text_only ) {
 							$status_txt .= $stats;
@@ -260,8 +260,8 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 			}
 
 			//IF current compression is lossy
-			if ( ! empty( $wp_smush_data ) && ! empty( $wp_smush_data['stats'] ) ) {
-				$lossy    = ! empty( $wp_smush_data['stats']['lossy'] ) ? $wp_smush_data['stats']['lossy'] : '';
+			if ( ! empty( $ps_smush_data ) && ! empty( $ps_smush_data['stats'] ) ) {
+				$lossy    = ! empty( $ps_smush_data['stats']['lossy'] ) ? $ps_smush_data['stats']['lossy'] : '';
 				$is_lossy = $lossy == 1 ? true : false;
 			}
 
@@ -301,7 +301,7 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 
 			$stats = ! empty( $stats['stats'] ) ? $stats['stats'] : '';
 
-			$smush_stats = get_option( 'wp_smush_stats_nextgen', array() );
+			$smush_stats = get_option( 'ps_smush_stats_nextgen', array() );
 
 			if ( ! empty( $stats ) ) {
 
@@ -321,10 +321,10 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 				$smush_stats['percent'] = ! empty( $smush_stats['size_before'] ) && !empty( $smush_stats['size_after'] ) && $smush_stats['size_before'] > 0 ? ( $smush_stats['bytes'] / $smush_stats['size_before'] ) * 100 : $stats['percent'];
 			}
 
-			update_option( 'wp_smush_stats_nextgen', $smush_stats, false );
+			update_option( 'ps_smush_stats_nextgen', $smush_stats, false );
 
 			//Cahce the results, we don't need a timed cache expiration.
-			wp_cache_set( 'wp_smush_stats_nextgen', $smush_stats, 'nextgen' );
+			wp_cache_set( 'ps_smush_stats_nextgen', $smush_stats, 'nextgen' );
 		}
 
 		/**
@@ -338,7 +338,7 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 
 			$stats = ! empty( $stats['stats'] ) ? $stats['stats'] : '';
 
-			$smush_stats = get_option( 'wp_smush_stats_nextgen', array() );
+			$smush_stats = get_option( 'ps_smush_stats_nextgen', array() );
 
 			if ( ! empty( $stats ) ) {
 
@@ -357,10 +357,10 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 				//Compression Percentage
 				$smush_stats['percent'] = ! empty( $smush_stats['size_before'] ) && !empty( $smush_stats['size_after'] ) && $smush_stats['size_before'] > 0 ? ( $smush_stats['bytes'] / $smush_stats['size_before'] ) * 100 : $stats['percent'];
 			}
-			update_option( 'wp_smush_stats_nextgen', $smush_stats, false );
+			update_option( 'ps_smush_stats_nextgen', $smush_stats, false );
 
 			//Cahce the results, we don't need a timed cache expiration.
-			wp_cache_set( 'wp_smush_stats_nextgen', $smush_stats, 'nextgen' );
+			wp_cache_set( 'ps_smush_stats_nextgen', $smush_stats, 'nextgen' );
 		}
 
 		/**
@@ -378,21 +378,21 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 
 			//Clear up the stats
 			if( 0 == $this->total_count() ) {
-				delete_option('wp_smush_stats_nextgen');
-				wp_cache_delete( 'wp_smush_stats_nextgen', 'nextgen' );
+				delete_option('ps_smush_stats_nextgen');
+				wp_cache_delete( 'ps_smush_stats_nextgen', 'nextgen' );
 			}
 
-			// Check for the  wp_smush_images_smushed in the 'nextgen' group.
-			$stats = wp_cache_get( 'wp_smush_stats_nextgen', 'nextgen' );
+			// Check for the  ps_smush_images_smushed in the 'nextgen' group.
+			$stats = wp_cache_get( 'ps_smush_stats_nextgen', 'nextgen' );
 
 			// If nothing is found, build the object.
 			if ( false === $stats ) {
-				// Check for the  wp_smush_images in the 'nextgen' group.
-				$stats = get_option( 'wp_smush_stats_nextgen', array() );
+				// Check for the  ps_smush_images in the 'nextgen' group.
+				$stats = get_option( 'ps_smush_stats_nextgen', array() );
 
 				if ( ! is_wp_error( $stats ) ) {
 					// In this case we don't need a timed cache expiration.
-					wp_cache_set( 'wp_smush_stats_nextgen', $stats, 'nextgen' );
+					wp_cache_set( 'ps_smush_stats_nextgen', $stats, 'nextgen' );
 				}
 			}
 			if ( empty( $stats['bytes'] ) || $stats['bytes'] < 0 ) {
@@ -423,17 +423,17 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 		/**
 		 * Returns the Stats for a image formatted into a nice table
 		 * @param $image_id
-		 * @param $wp_smush_data
+		 * @param $ps_smush_data
 		 * @param $attachment_metadata
 		 * @param $full_image
 		 *
 		 * @return string
 		 */
-		function get_detailed_stats( $image_id, $wp_smush_data, $attachment_metadata, $full_image ) {
+		function get_detailed_stats( $image_id, $ps_smush_data, $attachment_metadata, $full_image ) {
 			global $WpSmush;
 
 			$stats      = '<div id="smush-stats-' . $image_id . '" class="smush-stats-wrapper hidden">
-				<table class="wp-smush-stats-holder">
+				<table class="ps-smush-stats-holder">
 					<thead>
 						<tr>
 							<th><strong>' . esc_html__( 'Image size', 'ps-medienoptimierung' ) . '</strong></th>
@@ -441,7 +441,7 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 						</tr>
 					</thead>
 					<tbody>';
-			$size_stats = $wp_smush_data['sizes'];
+			$size_stats = $ps_smush_data['sizes'];
 
 			//Reorder Sizes as per the maximum savings
 			uasort( $size_stats, array( $this, "cmp" ) );
@@ -525,7 +525,7 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 				if ( ! $this->is_pro_user ) {
 					//For free version, check if full size is greater than 1 Mb, show the skipped status
 					$file_size = file_exists( $full_image ) ? filesize( $full_image ) : '';
-					if ( ! empty( $file_size ) && ( $file_size / WP_SMUSH_MAX_BYTES ) > 1 ) {
+					if ( ! empty( $file_size ) && ( $file_size / PS_SMUSH_MAX_BYTES ) > 1 ) {
 						$skipped[] = array(
 							'size'   => 'full',
 							'reason' => 'size_limit'
@@ -557,18 +557,18 @@ if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 		 *
 		 * @return string
 		 */
-		function show_resmush( $show_resmush, $wp_smush_data ) {
+		function show_resmush( $show_resmush, $ps_smush_data ) {
 			global $WpSmush;
 			//Resmush: Show resmush link, Check if user have enabled smushing the original and full image was skipped
 			if ( $WpSmush->smush_original ) {
 				//IF full image was not smushed
-				if ( ! empty( $wp_smush_data ) && empty( $wp_smush_data['sizes']['full'] ) ) {
+				if ( ! empty( $ps_smush_data ) && empty( $ps_smush_data['sizes']['full'] ) ) {
 					$show_resmush = true;
 				}
 			}
 			if ( ! $WpSmush->keep_exif ) {
 				//If Keep Exif was set to tru initially, and since it is set to false now
-				if ( ! empty( $wp_smush_data['stats']['keep_exif'] ) && $wp_smush_data['stats']['keep_exif'] == 1 ) {
+				if ( ! empty( $ps_smush_data['stats']['keep_exif'] ) && $ps_smush_data['stats']['keep_exif'] == 1 ) {
 					$show_resmush = true;
 				}
 			}

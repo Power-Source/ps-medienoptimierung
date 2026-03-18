@@ -1,6 +1,6 @@
 <?php
 /**
- * @package WP Smush
+ * @package PS Smush
  * @subpackage Admin
  * @version 2.3
  *
@@ -70,7 +70,7 @@ if ( ! class_exists( 'WpSmushResize' ) ) {
 			//If resizing is enabled
 			$this->resize_enabled = $settings['resize'];
 
-			$resize_sizes = $wpsmush_settings->get_setting( WP_SMUSH_PREFIX . 'resize_sizes', array() );
+			$resize_sizes = $wpsmush_settings->get_setting( PS_SMUSH_PREFIX . 'resize_sizes', array() );
 
 			//Resize width and Height
 			$this->max_w = ! empty( $resize_sizes['width'] ) ? $resize_sizes['width'] : 0;
@@ -122,12 +122,12 @@ if ( ! class_exists( 'WpSmushResize' ) ) {
 			$mime_supported = in_array( $mime, $wpsmushit_admin->mime_types );
 
 			//If type of upload doesn't matches the criteria return
-			if ( ! empty( $mime ) && ! $mime_supported = apply_filters( 'wp_smush_resmush_mime_supported', $mime_supported, $mime ) ) {
+			if ( ! empty( $mime ) && ! $mime_supported = apply_filters( 'ps_smush_resmush_mime_supported', $mime_supported, $mime ) ) {
 				return false;
 			}
 
 			//Check if already resized
-			$resize_meta = get_post_meta( $id, WP_SMUSH_PREFIX . 'resize_savings', true );
+			$resize_meta = get_post_meta( $id, PS_SMUSH_PREFIX . 'resize_savings', true );
 			if ( ! empty( $resize_meta ) ) {
 				return false;
 			}
@@ -139,7 +139,7 @@ if ( ! class_exists( 'WpSmushResize' ) ) {
 				$oldW = $meta['width'];
 				$oldH = $meta['height'];
 
-				$resize_dim = $wpsmush_settings->get_setting( WP_SMUSH_PREFIX . 'resize_sizes' );
+				$resize_dim = $wpsmush_settings->get_setting( PS_SMUSH_PREFIX . 'resize_sizes' );
 
 				$maxW = ! empty( $resize_dim['width'] ) ? $resize_dim['width'] : 0;
 				$maxH = ! empty( $resize_dim['height'] ) ? $resize_dim['height'] : 0;
@@ -200,7 +200,7 @@ if ( ! class_exists( 'WpSmushResize' ) ) {
 			 * @param string $context The type of upload action. Values include 'upload' or 'sideload'.
 			 *
 			 */
-			if ( ! $should_resize = apply_filters( 'wp_smush_resize_uploaded_image', $should_resize, $id, $meta ) ) {
+			if ( ! $should_resize = apply_filters( 'ps_smush_resize_uploaded_image', $should_resize, $id, $meta ) ) {
 				return $meta;
 			}
 
@@ -213,7 +213,7 @@ if ( ! class_exists( 'WpSmushResize' ) ) {
 
 			//If resize wasn't successful
 			if ( ! $resize || $resize['filesize'] >= $original_file_size ) {
-				update_post_meta( $id, WP_SMUSH_PREFIX . 'resize_savings', $savings );
+				update_post_meta( $id, PS_SMUSH_PREFIX . 'resize_savings', $savings );
 				return $meta;
 			}
 
@@ -233,7 +233,7 @@ if ( ! class_exists( 'WpSmushResize' ) ) {
 
 				//Store savings in meta data
 				if ( ! empty( $savings ) ) {
-					update_post_meta( $id, WP_SMUSH_PREFIX . 'resize_savings', $savings );
+					update_post_meta( $id, PS_SMUSH_PREFIX . 'resize_savings', $savings );
 				}
 
 				$meta['width']  = ! empty( $resize['width'] ) ? $resize['width'] : $meta['width'];
@@ -243,7 +243,7 @@ if ( ! class_exists( 'WpSmushResize' ) ) {
 				 * Called after the image has been successfully resized
 				 * Can be used to update the stored stats
 				 */
-				do_action( 'wp_smush_image_resized', $id, $savings );
+				do_action( 'ps_smush_image_resized', $id, $savings );
 
 			}
 
@@ -288,7 +288,7 @@ if ( ! class_exists( 'WpSmushResize' ) ) {
 			 * }
 			 *
 			 */
-			$sizes = apply_filters( 'wp_smush_resize_sizes', array(
+			$sizes = apply_filters( 'ps_smush_resize_sizes', array(
 				'width'  => $this->max_w,
 				'height' => $this->max_h
 			), $file_path, $id );

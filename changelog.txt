@@ -1,4 +1,4 @@
-Plugin Name: WP Smush Pro
+Plugin Name: PS Smush Pro
 Author: Umesh Kumar
 
 Change Log:
@@ -81,7 +81,7 @@ Change Log:
 
 * Fixed:
 
-    * Issue with WP Smush Pro membership check
+    * Issue with PS Smush Pro membership check
     * Stats: Rating message shows incorrect image count
     * Stats: Include directory smush stats in media stats
     * Directory Smush: UI improvement
@@ -105,7 +105,7 @@ Change Log:
 
 * Added:
 
-    * Added a check to preserve smush stats on plugin deletion, You can add `define('WP_SMUSH_PRESERVE_STATS', true );` in wp-config.php
+    * Added a check to preserve smush stats on plugin deletion, You can add `define('PS_SMUSH_PRESERVE_STATS', true );` in wp-config.php
 
 = 2.6.2 =
 
@@ -164,8 +164,8 @@ Change Log:
 = 2.5.2 =
 
 * Added:
-    * Filter: `wp_smush_image`, Boolean, Whether to Smush image or not
-    * Async Optimisation for Auto Smush on upload ( Set WP_SMUSH_ASYNC to false to turn off async optimisation )
+    * Filter: `ps_smush_image`, Boolean, Whether to Smush image or not
+    * Async Optimisation for Auto Smush on upload ( Set PS_SMUSH_ASYNC to false to turn off async optimisation )
     * Networkwide settings option in a Multisite
 
 * Fixed:
@@ -214,7 +214,7 @@ Change Log:
     * EXIF: Device details were left out for some images, even when opted for stripping it
 
 * Updated:
-    * Minor Tweaks on WP Smush Page ( Bulk Smush )
+    * Minor Tweaks on PS Smush Page ( Bulk Smush )
     * Stats calculation is more accurate
     * Show current image size and image size dimensions in media library after image has been smushed
     * JPEG optimisation - higher savings for JPEGs lossy optimisation ( Pro Feature )
@@ -287,9 +287,9 @@ Change Log:
 * Fixed: NextGen Bulk Smush button issue
 * Fixed: Invalid header issue
 * Fixed: Warnings in file functions
-* Updated: Added limit on query results, for sites with higher image count, Use filter `wp_smush_media_query_limit` to adjust values
-* Added: Sortable WP Smush column in Media Library
-* Added: Filters `wp_smush_media_image` for Media Gallery, `wp_smush_nextgen_image` For NextGen gallery,
+* Updated: Added limit on query results, for sites with higher image count, Use filter `ps_smush_media_query_limit` to adjust values
+* Added: Sortable PS Smush column in Media Library
+* Added: Filters `ps_smush_media_image` for Media Gallery, `ps_smush_nextgen_image` For NextGen gallery,
           allows to skip a particular image size from smushing
 * Added: NextGen Gallery support
 
@@ -306,10 +306,10 @@ Change Log:
 * Fixed: Directory path for files
 * Fixed: Workaround for Auto Smush issue on Hostgator
 * Fixed: Smush button doesn't works in media library dialog on post screen, when add media is clicked
-		 (https://wordpress.org/support/topic/like-wp-smush-a-lot)
+		 (https://wordpress.org/support/topic/like-ps-smush-a-lot)
 * New:   Show number of images smushed in stats column
 * Added: Support for WP Retina 2x Plugin
-* Added: Filter `WP_SMUSH_API_TIMEOUT` to change the default time out value from 60s
+* Added: Filter `PS_SMUSH_API_TIMEOUT` to change the default time out value from 60s
 * Added: Smush original image option (Pro Only)
 
 = 2.0.6.2 =

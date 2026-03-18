@@ -1,6 +1,6 @@
 <?php
 /**
- * @package WP Smush
+ * @package PS Smush
  * @subpackage S3
  * @version 2.7
  *
@@ -28,10 +28,10 @@ if ( ! class_exists( 'WpSmushS3' ) ) {
 			global $WpSmush;
 
 			//Filters the setting variable to add S3 setting title and description
-			add_filter( 'wp_smush_settings', array( $this, 'register' ), 6 );
+			add_filter( 'ps_smush_settings', array( $this, 'register' ), 6 );
 
 			//Filters the setting variable to add S3 setting in premium features
-			add_filter( 'wp_smush_pro_settings', array( $this, 'add_setting' ), 6 );
+			add_filter( 'ps_smush_pro_settings', array( $this, 'add_setting' ), 6 );
 
 			//return if not a pro user
 			if ( ! $WpSmush->validate_install() ) {
@@ -131,7 +131,7 @@ if ( ! class_exists( 'WpSmushS3' ) ) {
 
 			$class      = 'error' == $this->message_type ? ' smush-s3-setup-error' : ' smush-s3-setup-message';
 			$icon_class = 'error' == $this->message_type ? ' icon-fi-warning-alert' : ' icon-fi-check-tick';
-			echo "<div class='wp-smush-notice" . $class . "'><i class='" . $icon_class . "'></i><p>$this->setup_notice</p></div>";
+			echo "<div class='ps-smush-notice" . $class . "'><i class='" . $icon_class . "'></i><p>$this->setup_notice</p></div>";
 		}
 
 		/**
@@ -154,12 +154,12 @@ if ( ! class_exists( 'WpSmushS3' ) ) {
 
 			// Do not display the notice on Bulk Smush Screen.
 			global $current_screen;
-			if ( ! empty( $current_screen->base ) && 'media_page_wp-smush-bulk' != $current_screen->base && 'gallery_page_wp-smush-nextgen-bulk' != $current_screen->base && 'settings_page_wp-smush-network' != $current_screen->base ) {
+			if ( ! empty( $current_screen->base ) && 'media_page_ps-smush-bulk' != $current_screen->base && 'gallery_page_ps-smush-nextgen-bulk' != $current_screen->base && 'settings_page_ps-smush-network' != $current_screen->base ) {
 				return true;
 			}
 
 			// If already dismissed, do not show.
-			if ( 1 == get_site_option( 'wp-smush-hide_s3support_alert' ) ) {
+			if ( 1 == get_site_option( 'ps-smush-hide_s3support_alert' ) ) {
 				return true;
 			}
 
@@ -170,11 +170,11 @@ if ( ! class_exists( 'WpSmushS3' ) ) {
 
 			wp_enqueue_script( 'ps-medienoptimierung-notice-js' );
 			// Settings link.
-			$settings_link = is_multisite() && $wpsmush_settings->settings['networkwide'] ? network_admin_url( 'settings.php?page=wp-smush' ) : admin_url( 'upload.php?page=wp-smush-bulk' );
+			$settings_link = is_multisite() && $wpsmush_settings->settings['networkwide'] ? network_admin_url( 'settings.php?page=ps-smush' ) : admin_url( 'upload.php?page=ps-smush-bulk' );
 
 			$message = sprintf( __( "We can see you have WP Offload S3 installed with the <strong>Remove Files From Server</strong> option activated. To optimize S3 images, enable <a href='%s'><strong>Amazon S3 Support</strong></a> in this plugin's settings.", 'ps-medienoptimierung' ), $settings_link );
 
-			echo '<div class="wp-smush-notice wp-smush-s3support-alert notice"><span class="notice-message">' . $message . '</span><i class="icon-fi-close"></i></div>';
+			echo '<div class="ps-smush-notice ps-smush-s3support-alert notice"><span class="notice-message">' . $message . '</span><i class="icon-fi-close"></i></div>';
 		}
 
 		/**
@@ -391,8 +391,8 @@ if ( ! class_exists( 'WpSmushS3' ) ) {
 
 }
 
-if ( class_exists( 'AS3CF_Plugin_Compatibility' ) && ! class_exists( 'wp_smush_s3_compat' ) ) {
-	class wp_smush_s3_compat extends AS3CF_Plugin_Compatibility {
+if ( class_exists( 'AS3CF_Plugin_Compatibility' ) && ! class_exists( 'ps_smush_s3_compat' ) ) {
+	class ps_smush_s3_compat extends AS3CF_Plugin_Compatibility {
 
 		function __construct() {
 			$this->init();
@@ -427,7 +427,7 @@ if ( class_exists( 'AS3CF_Plugin_Compatibility' ) && ! class_exists( 'wp_smush_s
 
 			//Download image for Manual and Bulk Smush
 			$action = ! empty( $_GET['action'] ) ? $_GET['action'] : '';
-			if ( empty( $action ) || ! in_array( $action, array( 'wp_smushit_manual', 'wp_smushit_bulk' ) ) ) {
+			if ( empty( $action ) || ! in_array( $action, array( 'ps_smushit_manual', 'ps_smushit_bulk' ) ) ) {
 				return $url;
 			}
 
@@ -441,5 +441,5 @@ if ( class_exists( 'AS3CF_Plugin_Compatibility' ) && ! class_exists( 'wp_smush_s
 	}
 
 	global $wpsmush_s3_compat;
-	$wpsmush_s3_compat = new wp_smush_s3_compat();
+	$wpsmush_s3_compat = new ps_smush_s3_compat();
 }

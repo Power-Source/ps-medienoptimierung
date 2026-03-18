@@ -30,7 +30,7 @@ WDP ID: 912164
 /**
  * Constants
  */
-$prefix  = 'WP_SMUSH_';
+$prefix  = 'PS_SMUSH_';
 $version = '2.7.8';
 
 // Local fork: do not force-disable other Smush variants.
@@ -38,7 +38,7 @@ $version = '2.7.8';
 /**
  * Set the default timeout for API request and AJAX timeout
  */
-$timeout = apply_filters( 'WP_SMUSH_API_TIMEOUT', 90 );
+$timeout = apply_filters( 'PS_SMUSH_API_TIMEOUT', 90 );
 
 // To support smushing on staging sites like SiteGround staging where
 // staging site urls are different but redirects to main site url.
@@ -58,9 +58,9 @@ $smush_constants = array(
 	'URL'               => plugin_dir_url( __FILE__ ),
 	'MAX_BYTES'         => 1000000,
 	'PREMIUM_MAX_BYTES' => 32000000,
-	'PREFIX'            => 'wp-smush-',
+	'PREFIX'            => 'ps-smush-',
 	'TIMEOUT'           => $timeout,
-	//If Set to false, WP Smush switch backs to the Old Sync Optimisation
+	//If Set to false, PS Smush switch backs to the Old Sync Optimisation
 	'ASYNC'             => true
 );
 
@@ -71,7 +71,7 @@ foreach ( $smush_constants as $const_name => $constant_val ) {
 }
 
 //Include main class
-require_once WP_SMUSH_DIR . 'lib/class-wp-smush.php';
+require_once PS_SMUSH_DIR . 'lib/class-ps-smush.php';
 
 /**
  * Filters the rating message, include stats if greater than 1Mb
@@ -80,8 +80,8 @@ require_once WP_SMUSH_DIR . 'lib/class-wp-smush.php';
  *
  * @return string
  */
-if ( ! function_exists( 'wp_smush_rating_message' ) ) {
-	function wp_smush_rating_message( $message ) {
+if ( ! function_exists( 'ps_smush_rating_message' ) ) {
+	function ps_smush_rating_message( $message ) {
 		global $wpsmushit_admin, $wpsmush_db;
 		if ( empty( $wpsmushit_admin->stats ) ) {
 			$wpsmushit_admin->setup_global_stats();
@@ -113,9 +113,9 @@ if ( ! function_exists( 'wp_smush_rating_message' ) ) {
  *
  * @return string
  */
-if ( ! function_exists( 'wp_smush_email_message' ) ) {
-	function wp_smush_email_message( $message ) {
-		$message = "You're awesome for installing %s! Site speed isn't all image optimization though, so we've collected all the best speed resources we know in a single email - just for users of WP Smush!";
+if ( ! function_exists( 'ps_smush_email_message' ) ) {
+	function ps_smush_email_message( $message ) {
+		$message = "You're awesome for installing %s! Site speed isn't all image optimization though, so we've collected all the best speed resources we know in a single email - just for users of PS Smush!";
 
 		return $message;
 	}
@@ -142,27 +142,27 @@ if ( ! function_exists( 'smush_activated' ) ) {
 	function smush_activated() {
 		global $wpsmush_settings;
 
-		$version  = get_site_option( WP_SMUSH_PREFIX . 'version' );
+		$version  = get_site_option( PS_SMUSH_PREFIX . 'version' );
 		$settings = ! empty( $wpsmush_settings->settings ) ? $wpsmush_settings->settings : $wpsmush_settings->init_settings();
 
 		//If the version is not saved or if the version is not same as the current version,
-		if ( ! $version || WP_SMUSH_VERSION != $version ) {
+		if ( ! $version || PS_SMUSH_VERSION != $version ) {
 			global $wpdb;
 			//Check if there are any existing smush stats
 			$query   = "SELECT meta_id FROM {$wpdb->postmeta} WHERE meta_key=%s LIMIT 1";
 			$results = $wpdb->get_var( $wpdb->prepare( $query, 'wp-smpro-smush-data' ) );
 
 			if ( $results ) {
-				update_site_option( 'wp-smush-install-type', 'existing' );
+				update_site_option( 'ps-smush-install-type', 'existing' );
 			} else {
 				//Check for existing settings
 				if ( false !== $settings['auto'] ) {
-					update_site_option( 'wp-smush-install-type', 'existing' );
+					update_site_option( 'ps-smush-install-type', 'existing' );
 				}
 			}
 
 			//Store the plugin version in db
-			update_site_option( WP_SMUSH_PREFIX . 'version', WP_SMUSH_VERSION );
+			update_site_option( PS_SMUSH_PREFIX . 'version', PS_SMUSH_VERSION );
 		}
 
 	}

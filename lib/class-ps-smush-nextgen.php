@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package WP Smush
+ * @package PS Smush
  * @subpackage NextGen Gallery
  * @version 1.0
  *
@@ -33,14 +33,14 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 		function init() {
 			global $WpSmush, $wpsmush_settings;
 			//Filters the setting variable to add S3 setting title and description
-			add_filter( 'wp_smush_settings', array( $this, 'register' ), 5 );
+			add_filter( 'ps_smush_settings', array( $this, 'register' ), 5 );
 
 			//Filters the setting variable to add S3 setting in premium features
-			add_filter( 'wp_smush_pro_settings', array( $this, 'add_setting' ), 5 );
+			add_filter( 'ps_smush_pro_settings', array( $this, 'add_setting' ), 5 );
 
 			//Check if integration is Enabled or not
 			//Smush NextGen key
-			$opt_nextgen     = WP_SMUSH_PREFIX . 'nextgen';
+			$opt_nextgen     = PS_SMUSH_PREFIX . 'nextgen';
 			$opt_nextgen_val = $wpsmush_settings->get_setting( $opt_nextgen, false );
 
 			//return if not a pro user, or nextgen integration is not enabled
@@ -180,7 +180,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 
 		/**
 		 * Read the image paths from an attachment's meta data and process each image
-		 * with wp_smushit().
+		 * with ps_smushit().
 		 *
 		 * @param $meta
 		 * @param null $ID
@@ -264,7 +264,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 					 * @param bool , Smush image or not
 					 * @$size string, Size of image being smushed
 					 */
-					$smush_image = apply_filters( 'wp_smush_nextgen_image', true, $size );
+					$smush_image = apply_filters( 'ps_smush_nextgen_image', true, $size );
 					if ( ! $smush_image ) {
 						continue;
 					}
@@ -300,7 +300,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 			//Set smush status for all the images, store it in wp-smpro-smush-data
 			if ( ! $has_errors ) {
 
-				$existing_stats = ( ! empty( $image->meta_data ) && ! empty( $image->meta_data['wp_smush'] ) ) ? $image->meta_data['wp_smush'] : '';
+				$existing_stats = ( ! empty( $image->meta_data ) && ! empty( $image->meta_data['ps_smush'] ) ) ? $image->meta_data['ps_smush'] : '';
 
 				if ( ! empty( $existing_stats ) ) {
 					//Update stats for each size
@@ -342,16 +342,16 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 					 * @param array $stats Smush Stats for the image
 					 *
 					 */
-					do_action( 'wp_smush_image_optimised_nextgen', $image->pid, $stats );
+					do_action( 'ps_smush_image_optimised_nextgen', $image->pid, $stats );
 				}
-				$image->meta_data['wp_smush'] = $stats;
+				$image->meta_data['ps_smush'] = $stats;
 				nggdb::update_image_meta( $image->pid, $image->meta_data );
 
 				//Allows To get the stats for each image, after the image is smushed
-				do_action( 'wp_smush_nextgen_image_stats', $image->pid, $stats );
+				do_action( 'ps_smush_nextgen_image_stats', $image->pid, $stats );
 			}
 
-			return $image->meta_data['wp_smush'];
+			return $image->meta_data['ps_smush'];
 		}
 
 		/**
@@ -381,7 +381,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 			$metadata = ! empty( $image ) ? $image->meta_data : '';
 
 			if ( empty( $metadata ) ) {
-				wp_send_json_error( array( 'error_msg' => '<p class="wp-smush-error-message">' . esc_html__( "We couldn't find the metadata for the image, possibly the image has been deleted.", "ps-medienoptimierung" ) . '</p>' ) );
+				wp_send_json_error( array( 'error_msg' => '<p class="ps-smush-error-message">' . esc_html__( "We couldn't find the metadata for the image, possibly the image has been deleted.", "ps-medienoptimierung" ) . '</p>' ) );
 			}
 
 			$registry = C_Component_Registry::get_instance();
@@ -434,7 +434,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 			$nonce = ! empty( $_GET['_nonce'] ) ? $_GET['_nonce'] : '';
 
 			//Verify Nonce
-			if ( ! wp_verify_nonce( $nonce, 'wp_smush_nextgen' ) ) {
+			if ( ! wp_verify_nonce( $nonce, 'ps_smush_nextgen' ) ) {
 				wp_send_json_error( array( 'error' => 'nonce_verification_failed' ) );
 			}
 
@@ -518,7 +518,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 		/**
 		 * Handles the ajax request to restore a image from backup and return button HTML
 		 *
-		 * @uses WpSmushNextGenAdmin::wp_smush_column_options()
+		 * @uses WpSmushNextGenAdmin::ps_smush_column_options()
 		 */
 		function restore_image() {
 			global $WpSmush, $wpsmushnextgenadmin;
@@ -532,7 +532,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 			}
 
 			//Check Nonce
-			if ( ! wp_verify_nonce( $_POST['_nonce'], "wp-smush-restore-" . $_POST['attachment_id'] ) ) {
+			if ( ! wp_verify_nonce( $_POST['_nonce'], "ps-smush-restore-" . $_POST['attachment_id'] ) ) {
 				wp_send_json_error( array(
 					'error'   => 'empty_fields',
 					'message' => esc_html__( "Image not restored, Nonce verification failed.", "ps-medienoptimierung" )
@@ -573,7 +573,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 				$restored[] = @copy( $attachment_file_path . '_backup', $attachment_file_path );
 			}
 			//Restoring the other sizes
-			$attachment_data = ! empty( $image->meta_data['wp_smush'] ) ? $image->meta_data['wp_smush'] : '';
+			$attachment_data = ! empty( $image->meta_data['ps_smush'] ) ? $image->meta_data['ps_smush'] : '';
 			if ( ! empty( $attachment_data['sizes'] ) ) {
 				foreach ( $attachment_data['sizes'] as $size => $size_data ) {
 					if ( 'full' == $size ) {
@@ -602,15 +602,15 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 			if ( in_array( true, $restored ) ) {
 
 				//Remove the Meta, And send json success
-				$image->meta_data['wp_smush'] = '';
+				$image->meta_data['ps_smush'] = '';
 				nggdb::update_image_meta( $image->pid, $image->meta_data );
 
 				//Get the Button html without wrapper
-				$button_html = $wpsmushnextgenadmin->wp_smush_column_options( '', $image_id, false );
+				$button_html = $wpsmushnextgenadmin->ps_smush_column_options( '', $image_id, false );
 
 				wp_send_json_success( array( 'button' => $button_html ) );
 			}
-			wp_send_json_error( array( 'message' => '<div class="wp-smush-error">' . __( "Unable to restore image", "ps-medienoptimierung" ) . '</div>' ) );
+			wp_send_json_error( array( 'message' => '<div class="ps-smush-error">' . __( "Unable to restore image", "ps-medienoptimierung" ) . '</div>' ) );
 		}
 
 		/**
@@ -621,14 +621,14 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 			if ( empty( $_POST['attachment_id'] ) || empty( $_POST['_nonce'] ) ) {
 				wp_send_json_error( array(
 					'error'   => 'empty_fields',
-					'message' => '<div class="wp-smush-error">' . esc_html__( "We couldn't process the image, fields empty.", "ps-medienoptimierung" ) . '</div>'
+					'message' => '<div class="ps-smush-error">' . esc_html__( "We couldn't process the image, fields empty.", "ps-medienoptimierung" ) . '</div>'
 				) );
 			}
 			//Check Nonce
-			if ( ! wp_verify_nonce( $_POST['_nonce'], "wp-smush-resmush-" . $_POST['attachment_id'] ) ) {
+			if ( ! wp_verify_nonce( $_POST['_nonce'], "ps-smush-resmush-" . $_POST['attachment_id'] ) ) {
 				wp_send_json_error( array(
 					'error'   => 'empty_fields',
-					'message' => '<div class="wp-smush-error">' . esc_html__( "Image couldn't be smushed as the nonce verification failed, try reloading the page.", "ps-medienoptimierung" ) . '</div>'
+					'message' => '<div class="ps-smush-error">' . esc_html__( "Image couldn't be smushed as the nonce verification failed, try reloading the page.", "ps-medienoptimierung" ) . '</div>'
 				) );
 			}
 
@@ -645,7 +645,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 			} elseif ( is_wp_error( $smushed ) ) {
 
 				//Send Error Message
-				wp_send_json_error( array( 'message' => sprintf( '<div class="wp-smush-error">' . __( "Unable to smush image, %s", "ps-medienoptimierung" ) . '</div>', $smushed->get_error_message() ) ) );
+				wp_send_json_error( array( 'message' => sprintf( '<div class="ps-smush-error">' . __( "Unable to smush image, %s", "ps-medienoptimierung" ) . '</div>', $smushed->get_error_message() ) ) );
 
 			}
 		}
@@ -714,12 +714,12 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 			$mime_supported = in_array( $ext, $wpsmushit_admin->mime_types );
 
 			//If type of upload doesn't matches the criteria return
-			if ( ! empty( $mime ) && ! $mime_supported = apply_filters( 'wp_smush_resmush_mime_supported', $mime_supported, $mime ) ) {
+			if ( ! empty( $mime ) && ! $mime_supported = apply_filters( 'ps_smush_resmush_mime_supported', $mime_supported, $mime ) ) {
 				return $meta;
 			}
 
 			//If already resized
-			if ( ! empty( $meta['wp_smush_resize_savings'] ) ) {
+			if ( ! empty( $meta['ps_smush_resize_savings'] ) ) {
 				return $meta;
 			}
 
@@ -741,7 +741,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 			 * @param string $context The type of upload action. Values include 'upload' or 'sideload'.
 			 *
 			 */
-			if ( ! $should_resize = apply_filters( 'wp_smush_resize_nextgen_image', $should_resize, $image, $meta ) ) {
+			if ( ! $should_resize = apply_filters( 'ps_smush_resize_nextgen_image', $should_resize, $image, $meta ) ) {
 				return $meta;
 			}
 
@@ -772,7 +772,7 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 
 				//Store savings in meta data
 				if ( ! empty( $savings ) ) {
-					$meta['wp_smush_resize_savings'] = $savings;
+					$meta['ps_smush_resize_savings'] = $savings;
 				}
 
 				//Update dimensions of the image in meta
@@ -786,13 +786,13 @@ if ( ! class_exists( 'WpSmushNextGen' ) ) {
 				 * Called after the image has been successfully resized
 				 * Can be used to update the stored stats
 				 */
-				do_action( 'wp_smush_image_nextgen_resized', $attachment_id, array( 'stats' => $savings ) );
+				do_action( 'ps_smush_image_nextgen_resized', $attachment_id, array( 'stats' => $savings ) );
 
 				/**
 				 * Called after the image has been successfully resized
 				 * Can be used to update the stored stats
 				 */
-				do_action( 'wp_smush_image_resized', $attachment_id, $savings );
+				do_action( 'ps_smush_image_resized', $attachment_id, $savings );
 			}
 
 			return $meta;
@@ -893,8 +893,8 @@ if ( class_exists( 'WpSmushNextGen' ) ) {
 						//If the image was smushed
 						if ( ! is_wp_error( $response ) && ! empty( $response['data'] ) && $response['data']->bytes_saved > 0 ) {
 							//Check for existing stats
-							if ( ! empty( $image->meta_data ) && ! empty( $image->meta_data['wp_smush'] ) ) {
-								$stats = $image->meta_data['wp_smush'];
+							if ( ! empty( $image->meta_data ) && ! empty( $image->meta_data['ps_smush'] ) ) {
+								$stats = $image->meta_data['ps_smush'];
 							} else {
 								//Initialize stats array
 								$stats                = array(
@@ -915,12 +915,12 @@ if ( class_exists( 'WpSmushNextGen' ) ) {
 							$stats['sizes'][ $size ] = (object) $WpSmush->_array_fill_placeholders( $WpSmush->_get_size_signature(), (array) $response['data'] );
 
 							if ( isset( $image->metadata ) ) {
-								$image->meta_data['wp_smush'] = $stats;
+								$image->meta_data['ps_smush'] = $stats;
 								nggdb::update_image_meta( $image->pid, $image->meta_data );
 							}
 
 							//Allows To get the stats for each image, after the image is smushed
-							do_action( 'wp_smush_nextgen_image_stats', $image_id, $stats );
+							do_action( 'ps_smush_nextgen_image_stats', $image_id, $stats );
 						}
 					}
 				}

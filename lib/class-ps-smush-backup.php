@@ -149,7 +149,7 @@ if ( ! class_exists( 'WpSmushBackup' ) ) {
 					) );
 				}
 				//Check Nonce
-				if ( ! wp_verify_nonce( $_POST['_nonce'], "wp-smush-restore-" . $_POST['attachment_id'] ) ) {
+				if ( ! wp_verify_nonce( $_POST['_nonce'], "ps-smush-restore-" . $_POST['attachment_id'] ) ) {
 					wp_send_json_error( array(
 						'error'   => 'empty_fields',
 						'message' => esc_html__( "Image not restored, Nonce verification failed.", "ps-medienoptimierung" )
@@ -164,7 +164,7 @@ if ( ! class_exists( 'WpSmushBackup' ) ) {
 			$attachment_id = empty( $attachment ) ? absint( (int) $_POST['attachment_id'] ) : $attachment;
 
 			//Set a transient to avoid the smush-restore-smush loop
-			set_transient( "wp-smush-restore-$attachment_id", true, 60 );
+			set_transient( "ps-smush-restore-$attachment_id", true, 60 );
 
 			//Restore Full size -> get other image sizes -> restore other images
 
@@ -183,7 +183,7 @@ if ( ! class_exists( 'WpSmushBackup' ) ) {
 					//If we don't have the backup path in backup sizes, Check for legacy original file path
 					if ( empty( $backup_path ) ) {
 						//Check if it's a jpg converted from png, and restore the jpg to png
-						$original_file = get_post_meta( $attachment_id, WP_SMUSH_PREFIX . 'original_file', true );
+						$original_file = get_post_meta( $attachment_id, PS_SMUSH_PREFIX . 'original_file', true );
 						$backup_path   = $WpSmush->original_file( $original_file );
 					}
 
@@ -259,16 +259,16 @@ if ( ! class_exists( 'WpSmushBackup' ) ) {
 				delete_post_meta( $attachment_id, $WpSmush->smushed_meta_key );
 
 				//Remove PNG to JPG conversion savings
-				delete_post_meta( $attachment_id, WP_SMUSH_PREFIX . 'pngjpg_savings' );
+				delete_post_meta( $attachment_id, PS_SMUSH_PREFIX . 'pngjpg_savings' );
 
 				//Remove Original File
-				delete_post_meta( $attachment_id, WP_SMUSH_PREFIX . 'original_file' );
+				delete_post_meta( $attachment_id, PS_SMUSH_PREFIX . 'original_file' );
 
 				//Get the Button html without wrapper
 				$button_html = $WpSmush->set_status( $attachment_id, false, false, false );
 
 				//Remove the transient
-				delete_transient( "wp-smush-restore-$attachment_id" );
+				delete_transient( "ps-smush-restore-$attachment_id" );
 
 				if ( $resp ) {
 					wp_send_json_success( array( 'button' => $button_html ) );
@@ -277,9 +277,9 @@ if ( ! class_exists( 'WpSmushBackup' ) ) {
 				}
 			}
 			//Remove the transient
-			delete_transient( "wp-smush-restore-$attachment_id" );
+			delete_transient( "ps-smush-restore-$attachment_id" );
 			if ( $resp ) {
-				wp_send_json_error( array( 'message' => '<div class="wp-smush-error">' . __( "Unable to restore image", "ps-medienoptimierung" ) . '</div>' ) );
+				wp_send_json_error( array( 'message' => '<div class="ps-smush-error">' . __( "Unable to restore image", "ps-medienoptimierung" ) . '</div>' ) );
 			}
 
 			return false;
@@ -315,7 +315,7 @@ if ( ! class_exists( 'WpSmushBackup' ) ) {
 			 * 5. Add a action after updating the URLs, that'd allow the users to perform a additional search, replace action
 			 **/
 			if ( empty( $original_file ) ) {
-				$original_file = get_post_meta( $image_id, WP_SMUSH_PREFIX . 'original_file', true );
+				$original_file = get_post_meta( $image_id, PS_SMUSH_PREFIX . 'original_file', true );
 			}
 			$original_file_path = $WpSmush->original_file( $original_file );
 			if ( file_exists( $original_file_path ) ) {
@@ -332,7 +332,7 @@ if ( ! class_exists( 'WpSmushBackup' ) ) {
 				/**
 				 *  Perform a action after the image URL is updated in post content
 				 */
-				do_action( 'wp_smush_image_url_updated', $image_id, $file_path, $original_file );
+				do_action( 'ps_smush_image_url_updated', $image_id, $file_path, $original_file );
 			}
 			//Update Meta
 			if ( ! empty( $meta ) ) {

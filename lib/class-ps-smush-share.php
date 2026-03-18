@@ -1,6 +1,6 @@
 <?php
 /**
- * @package WP Smush
+ * @package PS Smush
  *
  * @version 2.4
  *
@@ -23,22 +23,22 @@ if ( ! class_exists( 'WpSmushShare' ) ) {
 			}
 
 			$message   = sprintf( esc_html__( "%s, you've smushed %s%d%s images and saved %s%s%s in total. Help your friends save bandwidth easily, and help me in my quest to Smush the internet!", "ps-medienoptimierung" ), $wpsmushit_admin->get_user_name(), '<span class="smush-share-image-count">', $savings['total_images'], '</span>', '<span class="smush-share-savings">', $savings['human'], '</span>' );
-			$share_msg = sprintf( esc_html__( 'I saved %s%s%s on my site with WP Smush ( %s ) - wanna make your website light and faster?', "ps-medienoptimierung" ) , '<span class="smush-share-savings">', $savings['human'], '</span>', urlencode( "https://wordpress.org/plugins/wp-smushit/" ) ); ?>
-			<section class="dev-box" id="wp-smush-share-widget">
+			$share_msg = sprintf( esc_html__( 'I saved %s%s%s on my site with PS Smush ( %s ) - wanna make your website light and faster?', "ps-medienoptimierung" ) , '<span class="smush-share-savings">', $savings['human'], '</span>', urlencode( "https://wordpress.org/plugins/ps-smushit/" ) ); ?>
+			<section class="dev-box" id="ps-smush-share-widget">
 			<div class="box-content roboto-medium">
-				<p class="wp-smush-share-message"><?php echo $message; ?></p>
-				<div class="wp-smush-share-buttons-wrapper">
+				<p class="ps-smush-share-message"><?php echo $message; ?></p>
+				<div class="ps-smush-share-buttons-wrapper">
 					<!-- Twitter Button -->
 					<a href="https://twitter.com/intent/tweet?text=<?php echo esc_attr( $share_msg ); ?>"
-					   class="button wp-smush-share-button" id="wp-smush-twitter-share">
+					   class="button ps-smush-share-button" id="ps-smush-twitter-share">
 						<i class="icon-fi-social-twitter"></i><?php esc_html_e( "TWEET", "ps-medienoptimierung" ); ?></a>
 					<!-- Facebook Button -->
-					<a href="http://www.facebook.com/sharer.php?s=100&p[title]=WP Smush&p[url]=http://wordpress.org/plugins/wp-smushit/"
-					   class="button wp-smush-share-button" id="wp-smush-facebook-share">
+					<a href="http://www.facebook.com/sharer.php?s=100&p[title]=PS Smush&p[url]=http://wordpress.org/plugins/ps-smushit/"
+					   class="button ps-smush-share-button" id="ps-smush-facebook-share">
 						<i class="icon-fi-social-facebook"></i><?php esc_html_e( "SHARE", "ps-medienoptimierung" ); ?></a>
 					<a href="whatsapp://send?text='<?php echo esc_attr( $share_msg ); ?>'"
-					   class="button wp-smush-share-button"
-					   id="wp-smush-whatsapp-share">
+					   class="button ps-smush-share-button"
+					   id="ps-smush-whatsapp-share">
 						<?php esc_html_e( "WhatsApp", "ps-medienoptimierung" ); ?></a>
 				</div>
 			</div>

@@ -14,8 +14,8 @@ jQuery(function ($) {
         //Show the Quick Setup Dialog
         if ($('#smush-quick-setup').size() > 0) {
             WDP.showOverlay("#smush-quick-setup", {
-                title: wp_smush_msgs.quick_setup_title,
-                class: 'no-close wp-smush-overlay'
+                title: ps_smush_msgs.quick_setup_title,
+                class: 'no-close ps-smush-overlay'
             });
             remove_dialog();
         }

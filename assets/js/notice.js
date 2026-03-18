@@ -46,7 +46,7 @@ jQuery(function () {
     }
 
     // Dismiss the update notice.
-    jQuery('.wp-smush-update-info').on('click', '.notice-dismiss', function (e) {
+    jQuery('.ps-smush-update-info').on('click', '.notice-dismiss', function (e) {
         e.preventDefault();
         el_notice = jQuery(this);
         remove_notice();
@@ -54,7 +54,7 @@ jQuery(function () {
     });
 
     // Dismiss S3 support alert.
-    jQuery('div.wp-smush-s3support-alert').on('click', '.icon-fi-close', function (e) {
+    jQuery('div.ps-smush-s3support-alert').on('click', '.icon-fi-close', function (e) {
         el_notice = jQuery(this);
         remove_notice();
         send_dismiss_request( 'dismiss_s3support_alert' );

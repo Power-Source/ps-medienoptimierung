@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package WP Smush
+ * @package PS Smush
  * @subpackage Migrate
  * @version 1.0
  *
@@ -59,7 +59,7 @@ class WpSmushMigrate {
 	 * @return array
 	 */
 	public function migrate_api_message( array $message ){
-		if( !isset( $message["wp_smushit"] ) ) return array();
+		if( !isset( $message["ps_smushit"] ) ) return array();
 
 		$new_message = array(
 			"stats" => array(
@@ -76,11 +76,11 @@ class WpSmushMigrate {
 
 		if( isset( $message['sizes'] ) ){
 			foreach( $message['sizes'] as $key => $size ){
-				if( isset( $size['wp_smushit'] ) ){
+				if( isset( $size['ps_smushit'] ) ){
 					$new_size = new stdClass();
 
-					$new_size->compression = $this->_get_saved_percentage( $size['wp_smushit'] );
-					$new_size->bytes_saved = $this->_get_saved_bytes( $size['wp_smushit'] );
+					$new_size->compression = $this->_get_saved_percentage( $size['ps_smushit'] );
+					$new_size->bytes_saved = $this->_get_saved_bytes( $size['ps_smushit'] );
 					$new_size->before_size = -1;
 					$new_size->after_size = -1;
 					$new_size->time = -1;
@@ -95,8 +95,8 @@ class WpSmushMigrate {
 			}
 		}
 
-		$new_message["stats"]['percent'] = $this->_get_saved_percentage( $message['wp_smushit'] );
-		$new_message["stats"]['bytes'] = $this->_get_saved_bytes( $message['wp_smushit'] );
+		$new_message["stats"]['percent'] = $this->_get_saved_percentage( $message['ps_smushit'] );
+		$new_message["stats"]['bytes'] = $this->_get_saved_bytes( $message['ps_smushit'] );
 
 		if( $new_message["stats"]['percent'] !== -1 && $new_message["stats"]['bytes'] !== -1){
 			$new_message["stats"]['size_before'] = ( $new_message["stats"]['bytes'] * 100 ) / $new_message["stats"]['percent'];

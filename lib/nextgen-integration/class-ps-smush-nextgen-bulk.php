@@ -3,7 +3,7 @@ if ( ! class_exists( 'WPSmushNextGenBulk' ) ) {
 	class WPSmushNextGenBulk extends WpSmushNextGen {
 
 		function __construct() {
-			add_action( 'wp_ajax_wp_smushit_nextgen_bulk', array( $this, 'smush_bulk' ) );
+			add_action( 'wp_ajax_ps_smushit_nextgen_bulk', array( $this, 'smush_bulk' ) );
 		}
 
 		function smush_bulk() {
@@ -28,12 +28,12 @@ if ( ! class_exists( 'WPSmushNextGenBulk' ) ) {
 				$error      = $smush->get_error_message();
 				//Check for timeout error and suggest to filter timeout
 				if ( strpos( $error, 'timed out' ) ) {
-					$msg = '<p class="wp-smush-error-message">' . esc_html__( "Smush request timed out. You can try setting a higher value ( > 60 ) for `WP_SMUSH_API_TIMEOUT`.", "ps-medienoptimierung" ) . '</p>';
+					$msg = '<p class="ps-smush-error-message">' . esc_html__( "Smush request timed out. You can try setting a higher value ( > 60 ) for `PS_SMUSH_API_TIMEOUT`.", "ps-medienoptimierung" ) . '</p>';
 				}
 			} else {
 				//Check if a resmush request, update the resmush list
 				if ( ! empty( $_REQUEST['is_bulk_resmush'] ) && $_REQUEST['is_bulk_resmush'] ) {
-					$wpsmushit_admin->update_resmush_list( $atchmnt_id, 'wp-smush-nextgen-resmush-list' );
+					$wpsmushit_admin->update_resmush_list( $atchmnt_id, 'ps-smush-nextgen-resmush-list' );
 				}
 			}
 
@@ -45,10 +45,10 @@ if ( ! class_exists( 'WPSmushNextGenBulk' ) ) {
 
 			//Get the resmush ids list
 			if ( empty( $wpsmushnextgenadmin->resmush_ids ) ) {
-				$wpsmushnextgenadmin->resmush_ids = get_option( 'wp-smush-nextgen-resmush-list' );
+				$wpsmushnextgenadmin->resmush_ids = get_option( 'ps-smush-nextgen-resmush-list' );
 			}
 
-			$wpsmushnextgenadmin->resmush_ids = empty( $wpsmushnextgenadmin->resmush_ids ) ? get_option( 'wp-smush-nextgen-resmush-list' ) : array();
+			$wpsmushnextgenadmin->resmush_ids = empty( $wpsmushnextgenadmin->resmush_ids ) ? get_option( 'ps-smush-nextgen-resmush-list' ) : array();
 			$resmush_count  = ! empty( $wpsmushnextgenadmin->resmush_ids ) ? count( $wpsmushnextgenadmin->resmush_ids ) : 0;
 			$smushed_images = $wpsmushnextgenstats->get_ngg_images( 'smushed' );
 

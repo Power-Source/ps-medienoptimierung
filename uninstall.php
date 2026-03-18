@@ -12,7 +12,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 //Check if someone want to keep the stats and settings
-if( defined('WP_SMUSH_PRESERVE_STATS') &&  WP_SMUSH_PRESERVE_STATS ) {
+if( defined('PS_SMUSH_PRESERVE_STATS') &&  PS_SMUSH_PRESERVE_STATS ) {
 	return;
 }
 
@@ -57,21 +57,21 @@ $cache_keys = array(
 
 $cache_smush_group   = array(
 	'exceeding_items',
-	'wp-smush-resize_savings',
+	'ps-smush-resize_savings',
 	'pngjpg_savings'
 );
 $cache_nextgen_group = array(
-	'wp_smush_images',
-	'wp_smush_images_smushed',
-	'wp_smush_images_unsmushed',
-	'wp_smush_stats_nextgen',
+	'ps_smush_images',
+	'ps_smush_images_smushed',
+	'ps_smush_images_unsmushed',
+	'ps_smush_stats_nextgen',
 
 );
 
 if ( ! is_multisite() ) {
 	//Delete Options
 	foreach ( $smushit_keys as $key ) {
-		$key = 'wp-smush-' . $key;
+		$key = 'ps-smush-' . $key;
 		delete_option( $key );
 		delete_site_option( $key );
 	}
@@ -92,10 +92,10 @@ if ( ! is_multisite() ) {
 
 //Delete Directory Smush stats
 delete_option( 'dir_smush_stats' );
-delete_option( 'wp_smush_scan' );
-delete_option( 'wp_smush_api_auth' );
-delete_option( 'wp_smush_dir_path' );
-delete_site_option( 'wp_smush_api_auth' );
+delete_option( 'ps_smush_scan' );
+delete_option( 'ps_smush_api_auth' );
+delete_option( 'ps_smush_dir_path' );
+delete_site_option( 'ps_smush_api_auth' );
 
 //Delete Post meta
 $meta_type  = 'post';
@@ -111,12 +111,12 @@ if ( is_multisite() ) {
 			foreach ( $blogs as $blog ) {
 				switch_to_blog( $blog['blog_id'] );
 				delete_metadata( $meta_type, null, $meta_key, $meta_value, $delete_all );
-				delete_metadata( $meta_type, null, 'wp-smush-lossy', '', $delete_all );
-				delete_metadata( $meta_type, null, 'wp-smush-resize_savings', '', $delete_all );
-				delete_metadata( $meta_type, null, 'wp-smush-original_file', '', $delete_all );
-				delete_metadata( $meta_type, null, 'wp-smush-pngjpg_savings', '', $delete_all );
+				delete_metadata( $meta_type, null, 'ps-smush-lossy', '', $delete_all );
+				delete_metadata( $meta_type, null, 'ps-smush-resize_savings', '', $delete_all );
+				delete_metadata( $meta_type, null, 'ps-smush-original_file', '', $delete_all );
+				delete_metadata( $meta_type, null, 'ps-smush-pngjpg_savings', '', $delete_all );
 				foreach ( $smushit_keys as $key ) {
-					$key = 'wp-smush-' . $key;
+					$key = 'ps-smush-' . $key;
 					delete_option( $key );
 					delete_site_option( $key );
 				}
@@ -139,10 +139,10 @@ if ( is_multisite() ) {
 	}
 } else {
 	delete_metadata( $meta_type, null, $meta_key, $meta_value, $delete_all );
-	delete_metadata( $meta_type, null, 'wp-smush-lossy', '', $delete_all );
-	delete_metadata( $meta_type, null, 'wp-smush-resize_savings', '', $delete_all );
-	delete_metadata( $meta_type, null, 'wp-smush-original_file', '', $delete_all );
-	delete_metadata( $meta_type, null, 'wp-smush-pngjpg_savings', '', $delete_all );
+	delete_metadata( $meta_type, null, 'ps-smush-lossy', '', $delete_all );
+	delete_metadata( $meta_type, null, 'ps-smush-resize_savings', '', $delete_all );
+	delete_metadata( $meta_type, null, 'ps-smush-original_file', '', $delete_all );
+	delete_metadata( $meta_type, null, 'ps-smush-pngjpg_savings', '', $delete_all );
 }
 //Delete Directory smush table
 global $wpdb;
