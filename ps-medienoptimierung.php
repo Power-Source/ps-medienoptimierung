@@ -2,7 +2,7 @@
 /*
 Plugin Name: PS Medienoptimierung
 Plugin URI: https://psource.eimen.net/
-Description: Local image optimization for WordPress media without external API dependencies.
+Description: Lokale Bildoptimierung für WordPress-Medien ohne externe API-Abhängigkeiten.
 Author: NerdService
 Version: 1.0.0
 Author URI: https://nerdservice.de/
@@ -11,7 +11,7 @@ WDP ID: 912164
 */
 
 /*
-  Copyright 2009-2017 Incsub (http://incsub.com)
+  Copyright 2017-2026 PSOURCE (https://psource.eimen.net/)
   Author - Aaron Edwards, Sam Najian, Umesh Kumar
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License (Version 2 - GPLv2) as published by

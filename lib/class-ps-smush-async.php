@@ -1,13 +1,4 @@
 <?php
-/**
- * @package PS Smush
- * @subpackage Admin
- * @since 2.5
- *
- * @author Umesh Kumar <umesh@incsub.com>
- *
- * @copyright (c) 2016, Incsub (http://incsub.com)
- */
 require_once 'wp-async-task-smush.php';
 
 if ( ! class_exists( 'WpSmushAsync' ) ) {

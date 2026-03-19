@@ -1,13 +1,4 @@
 <?php
-/**
- * @package PS Smush
- * @subpackage S3
- * @version 2.7
- *
- * @author Umesh Kumar <umesh@incsub.com>
- *
- * @copyright (c) 2017, Incsub (http://incsub.com)
- */
 if ( ! class_exists( 'WpSmushS3' ) ) {
 
 	class WpSmushS3 {

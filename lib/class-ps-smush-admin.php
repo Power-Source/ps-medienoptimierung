@@ -1,13 +1,4 @@
 <?php
-/**
- * @package PS Smush
- * @subpackage Admin
- * @version 1.0
- *
- * @author Umesh Kumar <umesh@incsub.com>
- *
- * @copyright (c) 2016, Incsub (http://incsub.com)
- */
 
 //Include Bulk UI
 require_once PS_SMUSH_DIR . 'lib/class-ps-smush-ui.php';

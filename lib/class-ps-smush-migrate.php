@@ -1,16 +1,5 @@
 <?php
 
-/**
- * @package PS Smush
- * @subpackage Migrate
- * @version 1.0
- *
- * @author Umesh Kumar <umesh@incsub.com>
- * @author Sam Najian <sam@incsub.com>
- *
- * @copyright (c) 2016, Incsub (http://incsub.com)
- */
-
 class WpSmushMigrate {
 
 	/**

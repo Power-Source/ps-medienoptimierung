@@ -1,16 +1,4 @@
 <?php
-
-/**
- * Handles all the stats related functions
- *
- * @package PS Smush
- * @subpackage NextGen Gallery
- * @version 1.0
- *
- * @author Umesh Kumar <umesh@incsub.com>
- *
- * @copyright (c) 2016, Incsub (http://incsub.com)
- */
 if ( ! class_exists( 'WpSmushNextGenStats' ) ) {
 
 	class WpSmushNextGenStats extends WpSmushNextGen {

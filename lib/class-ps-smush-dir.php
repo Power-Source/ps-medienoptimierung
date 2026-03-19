@@ -1,13 +1,4 @@
 <?php
-/**
- * @package PS Smush
- * @subpackage Admin
- * @since 2.6
- *
- * @author Umesh Kumar <umesh@incsub.com>
- *
- * @copyright (c) 2016, Incsub (http://incsub.com)
- */
 
 if ( ! class_exists( 'WpSmushDir' ) ) {
 

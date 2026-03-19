@@ -1,16 +1,4 @@
 <?php
-
-/**
- * Adds the Bulk Page and Smush Column to NextGen Gallery
- *
- * @package PS Smush
- * @subpackage NextGen Gallery
- * @version 1.0
- *
- * @author Umesh Kumar <umesh@incsub.com>
- *
- * @copyright (c) 2016, Incsub (http://incsub.com)
- */
 if ( ! class_exists( 'WpSmushNextGenAdmin' ) ) {
 
 	class WpSmushNextGenAdmin extends WpSmushNextGen {
