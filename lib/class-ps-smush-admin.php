@@ -275,7 +275,7 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 			global $admin_page_suffix, $wpsmush_bulkui;
 
 			//Bulk Smush Page for each site
-			$admin_page_suffix = add_media_page( 'PS Medienoptimierung', 'PS Medienoptimierung', 'edit_others_posts', 'ps-smush-bulk', array(
+			$admin_page_suffix = add_media_page( 'Medienoptimierung', 'Medienoptimierung', 'edit_others_posts', 'ps-smush-bulk', array(
 				$wpsmush_bulkui,
 				'ui'
 			) );
@@ -284,7 +284,7 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 			$page = 'settings.php';
 			$cap  = 'manage_network_options';
 
-			add_submenu_page( $page, 'PS Medienoptimierung', 'PS Medienoptimierung', $cap, 'ps-smush', array(
+			add_submenu_page( $page, 'Medienoptimierung', 'Medienoptimierung', $cap, 'ps-smush', array(
 				$wpsmush_bulkui,
 				'ui'
 			) );
@@ -331,6 +331,14 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 
 			$current_screen = get_current_screen();
 			$current_page   = $current_screen->base;
+
+			// Only load media modal extensions on attachment editors, not regular post/page editors.
+			if ( in_array( $current_page, array( 'post', 'post-new' ), true ) ) {
+				$post_type = isset( $current_screen->post_type ) ? $current_screen->post_type : '';
+				if ( 'attachment' !== $post_type ) {
+					return;
+				}
+			}
 
 			/**
 			 * Allows to disable enqueuing smush files on a particular page

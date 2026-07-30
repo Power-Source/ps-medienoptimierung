@@ -164,7 +164,7 @@ if ( ! class_exists( 'WpSmushDir' ) ) {
 
 			//Return image ids
 			if ( is_wp_error( $results ) ) {
-				error_log( sprintf( "PS Smush Query Error in %s at %s: %s", __FILE__, __LINE__, $results->get_error_message() ) );
+				error_log( sprintf( "Medienoptimierung Query Error in %s at %s: %s", __FILE__, __LINE__, $results->get_error_message() ) );
 				$results = array();
 			}
 
@@ -190,7 +190,7 @@ if ( ! class_exists( 'WpSmushDir' ) ) {
 			if ( empty( $results ) ) {
 				return false;
 			} elseif ( is_wp_error( $results ) ) {
-				error_log( sprintf( "PS Smush Query Error in %s at %s: %s", __FILE__, __LINE__, $results->get_error_message() ) );
+				error_log( sprintf( "Medienoptimierung Query Error in %s at %s: %s", __FILE__, __LINE__, $results->get_error_message() ) );
 
 				return false;
 			}
@@ -211,7 +211,7 @@ if ( ! class_exists( 'WpSmushDir' ) ) {
 		}
 
 		/**
-		 * Output the required UI for PS Smush All page
+		 * Output the required UI for Medienoptimierung All page
 		 */
 		function ui() {
 			global $WpSmush, $wpsmushit_admin, $wpsmush_bulkui;

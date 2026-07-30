@@ -52,11 +52,11 @@ if ( ! class_exists( 'WpSmushNextGenAdmin' ) ) {
 		}
 
 		/**
-		 * Add a PS Smush page for bulk smush and settings related to Nextgen gallery
+		 * Add a Medienoptimierung page for bulk smush and settings related to Nextgen gallery
 		 */
 		function ps_smush_bulk_menu() {
 			if ( defined( 'NGGFOLDER' ) ) {
-				$this->bulk_page_handle = add_submenu_page( NGGFOLDER, esc_html__( 'Bulk PS Smush', 'ps-medienoptimierung' ), esc_html__( 'PS Smush', 'ps-medienoptimierung' ), 'NextGEN Manage gallery', 'ps-smush-nextgen-bulk', array(
+				$this->bulk_page_handle = add_submenu_page( NGGFOLDER, esc_html__( 'Bulk Medienoptimierung', 'ps-medienoptimierung' ), esc_html__( 'Medienoptimierung', 'ps-medienoptimierung' ), 'NextGEN Manage gallery', 'ps-smush-nextgen-bulk', array(
 					&$this,
 					'ps_smush_bulk'
 				) );
@@ -66,18 +66,18 @@ if ( ! class_exists( 'WpSmushNextGenAdmin' ) ) {
 		}
 
 		/**
-		 * Returns a column name for PS Smush
+		 * Returns a column name for Medienoptimierung
 		 *
 		 * @param $columns
 		 *
 		 * @return mixed
 		 */
 		function ps_smush_image_column_name( $columns ) {
-			//Latest next gen takes string, while the earlier PS Smush plugin shows there use to be a array
+			//Latest next gen takes string, while the earlier Medienoptimierung plugin shows there use to be a array
 			if ( is_array( $columns ) ) {
-				$columns['ps_smush_image'] = esc_html__( 'PS Smush', 'ps-medienoptimierung' );
+				$columns['ps_smush_image'] = esc_html__( 'Medienoptimierung', 'ps-medienoptimierung' );
 			} else {
-				$columns = esc_html__( 'PS Smush', 'ps-medienoptimierung' );
+				$columns = esc_html__( 'Medienoptimierung', 'ps-medienoptimierung' );
 			}
 
 			return $columns;

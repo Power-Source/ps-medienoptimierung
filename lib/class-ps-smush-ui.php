@@ -664,7 +664,7 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
 					<div class="ps-smush-notice ps-smush-remaining<?php echo $class; ?>" tabindex="0">
 					    <i class="icon-fi-warning-alert"></i>
 						<span class="ps-smush-notice-text"><?php
-							printf( _n( "%s, you have %s%s%d%s attachment%s that needs smushing!", "%s, you have %s%s%d%s attachments%s that need smushing!", $wpsmushit_admin->remaining_count, "ps-medienoptimierung" ), $wpsmushit_admin->get_user_name(), '<strong>', '<span class="ps-smush-remaining-count">', $wpsmushit_admin->remaining_count, '</span>', '</strong>' );
+							printf( _n( "%s, Du hast %s%s%d%s Anhang%s, der optimiert werden muss!", "%s, Du hast %s%s%d%s Anhänge%s, die optimiert werden müssen!", $wpsmushit_admin->remaining_count, "ps-medienoptimierung" ), $wpsmushit_admin->get_user_name(), '<strong>', '<span class="ps-smush-remaining-count">', $wpsmushit_admin->remaining_count, '</span>', '</strong>' );
 							?>
 						</span>
 					</div><?php
@@ -674,7 +674,7 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
 				$this->progress_bar( $wpsmushit_admin );
 				//Enable Super Smush
 				if ( $WpSmush->validate_install() && ! $WpSmush->lossy_enabled ) { ?>
-					<p class="ps-smush-enable-lossy hidden"><?php esc_html_e( "Tip: Enable Super-Optimierung in the Einstellungen area to get even more savings with almost no visible drop in quality.", "ps-medienoptimierung" ); ?></p><?php
+					<p class="ps-smush-enable-lossy hidden"><?php esc_html_e( "Tip: Aktiviere Super-Optimierung in den Einstellungen, um noch mehr Einsparungen bei fast keiner sichtbaren Qualitätsminderung zu erzielen.", "ps-medienoptimierung" ); ?></p><?php
 				}
 				
 			}
@@ -696,7 +696,7 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
 			}
 			?>
 			<div class="ps-smush-bulk-progress-bar-wrapper hidden">
-			<p class="ps-smush-bulk-active roboto-medium"><?php printf( esc_html__( "%sBulk smush is currently running.%s You need to keep this page open for the process to complete.", "ps-medienoptimierung" ), '<strong>', '</strong>' ); ?></p>
+			<p class="ps-smush-bulk-active roboto-medium"><?php printf( esc_html__( "%sDie Massenoptimierung läuft derzeit.%s Du musst diese Seite geöffnet lassen, damit der Vorgang abgeschlossen werden kann.", "ps-medienoptimierung" ), '<strong>', '</strong>' ); ?></p>
 			<div class="ps-smush-progress-wrap">
 			    <i class="icon-fi-loader"></i>
 				<div class="ps-smush-progress-bar-wrap">
@@ -707,11 +707,11 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
 				</div>
 			</div>
 			<div class="ps-smush-count tc">
-                <?php printf( esc_html__( "%s%d%s of your media attachments have been smushed." ), '<span class="ps-smush-images-percent">', $smushed_pc, '</span>%' ); ?>
+                <?php printf( esc_html__( "%s%d%s deiner Medienanhänge wurden optimiert." ), '<span class="ps-smush-images-percent">', $smushed_pc, '</span>%' ); ?>
             </div>
             <div class="smush-cancel-button-wrapper">
                 <button type="button"
-                        class="button button-grey ps-smush-cancel-bulk" tooltip="<?php esc_html_e( "Stop current bulk smush process.", "ps-medienoptimierung"); ?>"><?php esc_html_e( "CANCEL", "ps-medienoptimierung" ); ?></button>
+                        class="button button-grey ps-smush-cancel-bulk" tooltip="<?php esc_html_e( "Stoppe den aktuellen Massenoptimierungsprozess.", "ps-medienoptimierung"); ?>"><?php esc_html_e( "ABBRECHEN", "ps-medienoptimierung" ); ?></button>
             </div>
 			</div>
 			<div class="smush-final-log notice notice-warning inline hidden"></div><?php
@@ -748,7 +748,7 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
 			if ( $show ) {
 				return '<div class="ps-smush-notice ps-smush-resmush-notice ps-smush-remaining" tabindex="0">
 						<i class="icon-fi-warning-alert"></i>
-						<span class="ps-smush-notice-text">' . sprintf( _n( "%s, you have %s%s%d%s attachment%s that needs re-compressing!", "%s, you have %s%s%d%s attachments%s that need re-compressing!", $count, "ps-medienoptimierung" ), $wpsmushit_admin->get_user_name(), '<strong>', '<span class="ps-smush-remaining-count">', $count, '</span>', '</strong>' ) . '</span>
+						<span class="ps-smush-notice-text">' . sprintf( _n( "%s, Du hast %s%s%d%s Anhang%s, der neu komprimiert werden muss!", "%s, Du hast %s%s%d%s Anhänge%s, die neu komprimiert werden müssen!", $count, "ps-medienoptimierung" ), $wpsmushit_admin->get_user_name(), '<strong>', '<span class="ps-smush-remaining-count">', $count, '</span>', '</strong>' ) . '</span>
 						<button class="button button-grey button-small ps-smush-skip-resmush" title="' . esc_html__("Neuoptimierung der Bilder überspringen", "ps-medienoptimierung") . '">' . esc_html__( "Überspringen", "ps-medienoptimierung" ) . '</button>
 	                </div>';
 			}
@@ -802,7 +802,7 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
 			}
 
 			//Page Heading for Free and Pro Version
-			$page_heading = esc_html__( 'PS Medienoptimierung', 'ps-medienoptimierung' );
+			$page_heading = esc_html__( 'Medienoptimierung', 'ps-medienoptimierung' );
 
 			$auto_smush_message = $WpSmush->is_auto_smush_enabled() ? sprintf( esc_html__( "Automatische Optimierung ist %saktiviert%s. Neu hochgeladene Bilder werden automatisch komprimiert.", "ps-medienoptimierung" ), '<span class="ps-smush-auto-enabled">', '</span>' ) : sprintf( esc_html__( "Automatische Optimierung ist %sdeaktiviert%s. Neu hochgeladene Bilder müssen manuell optimiert werden.", "ps-medienoptimierung" ), '<span class="ps-smush-auto-disabled">', '</span>' );
 
@@ -856,8 +856,8 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
 		*/
 		function get_user_validation_message( $notice = false ) {
 			$notice_class = $notice ? ' notice' : '';
-			$attr_message = esc_html__( 'Pruefe gerade, ob der lokale Optimierer verfuegbar ist..', 'ps-medienoptimierung' );
-			$message      = esc_html__( 'PS Medienoptimierung laeuft ohne externe Mitgliedschafts-Pruefung.', 'ps-medienoptimierung' );
+			$attr_message = esc_html__( 'Prüfe gerade, ob der lokale Optimierer verfügbar ist..', 'ps-medienoptimierung' );
+			$message      = esc_html__( 'Medienoptimierung läuft ohne externe Mitgliedschafts-Prüfung.', 'ps-medienoptimierung' );
 			$content = sprintf( '<div id="ps-smush-invalid-member" data-message="%s" class="hidden' . $notice_class . '"><div class="message">%s</div></div>', $attr_message, $message );
 			return $content;
 		}
@@ -881,7 +881,7 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
 				<input type="submit" id="ps-smush-save-settings" class="button button-grey"
 				       value="' . esc_html__( 'UPDATE EINSTELLUNGEN', 'ps-medienoptimierung' ) . '">
 		        <span class="spinner"></span>
-		        <span class="smush-submit-note">' . esc_html__( "PS Medienoptimierung prüft automatisch, ob Bilder erneut optimiert werden müssen.", "ps-medienoptimierung") . '</span>
+		        <span class="smush-submit-note">' . esc_html__( "Medienoptimierung prüft automatisch, ob Bilder erneut optimiert werden müssen.", "ps-medienoptimierung") . '</span>
 		        </span>
 			</form>';
 
@@ -907,7 +907,7 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
 			if( !$run_recheck ) {
 				return;
 			}
-			$message = '<div class="ps-smush-notice ps-smush-re-check-message">' . esc_html__( "Smush settings were updated, performing a quick scan to check if any of the images need to be Smushed again.", "ps-medienoptimierung") . '<i class="icon-fi-close"></i></div>';
+			$message = '<div class="ps-smush-notice ps-smush-re-check-message">' . esc_html__( "Medienoptimierungseinstellungen wurden aktualisiert. Es wird ein schneller Scan durchgeführt, um zu prüfen, ob eines der Bilder erneut optimiert werden muss.", "ps-medienoptimierung") . '<i class="icon-fi-close"></i></div>';
 
 			return $message;
 		}
@@ -926,7 +926,7 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
             $image_sizes = $wpsmush_settings->get_setting( PS_SMUSH_PREFIX . 'image_sizes', false );
             $sizes = $wpsmushit_admin->image_dimensions();
             if( !empty( $sizes ) ) { ?>
-                <!-- List of image sizes recognised by PS Smush -->
+                <!-- List of image sizes recognised by Medienoptimierung -->
                 <div class="ps-smush-image-size-list">
                     <span id="ps-smush-auto-desc"><?php printf( esc_html__("Bei jedem Bild-Upload erstellt WordPress verkleinerte Versionen für alle Standard- und benutzerdefinierten Bildgrößen deines Themes. Dadurch gibt es mehrere Versionen jedes Bildes in deiner Medienbibliothek.%sWähle unten die Bildgröße(n), die du optimieren möchtest:%s", "ps-medienoptimierung"), "<br /> <br />", "<br />"); ?></span><?php
                     foreach ( $sizes as $size_k => $size ) {
@@ -980,8 +980,8 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
                     <input aria-required="true" type="text" aria-describedby="<?php echo $prefix; ?>ps-smush-resize-note" id="<?php echo $prefix . $name . '_height'; ?>" class="ps-smush-resize-input" value="<?php echo isset( $resize_sizes['height'] ) && '' != $resize_sizes['height'] ? $resize_sizes['height'] : $p_height; ?>" name="<?php echo PS_SMUSH_PREFIX . $name . '_height'; ?>" tabindex="0" width=100 /> px
                 </label>
                 <div class="ps-smush-resize-note" id="<?php echo $prefix; ?>ps-smush-resize-note"><?php printf( esc_html__("Aktuell ist deine größte Bildgröße auf %s%dpx Breite %s %dpx Höhe%s eingestellt.", "ps-medienoptimierung"), '<strong>', $max_sizes['width'], '&times;', $max_sizes['height'], '</strong>' ); ?></div>
-                <div class="ps-smush-settings-info ps-smush-size-info ps-smush-update-width hidden" tabindex="0"><?php esc_html_e( "Just to let you know, the width you've entered is less than your largest image and may result in pixelation.", "ps-medienoptimierung" ); ?></div>
-                <div class="ps-smush-settings-info ps-smush-size-info ps-smush-update-height hidden" tabindex="0"><?php esc_html_e( "Just to let you know, the height you’ve entered is less than your largest image and may result in pixelation.", "ps-medienoptimierung" ); ?></div>
+                <div class="ps-smush-settings-info ps-smush-size-info ps-smush-update-width hidden" tabindex="0"><?php esc_html_e( "Nur zur Info: Die von Dir eingegebene Breite ist geringer als die Deines größten Bildes, was zu einer verpixelten Darstellung führen kann.", "ps-medienoptimierung" ); ?></div>
+                <div class="ps-smush-settings-info ps-smush-size-info ps-smush-update-height hidden" tabindex="0"><?php esc_html_e( "Nur zur Info: Die von Dir eingegebene Höhe ist geringer als die Deines größten Bildes, was zu einer verpixelten Darstellung führen kann.", "ps-medienoptimierung" ); ?></div>
             </div><?php
         }
 
@@ -1041,13 +1041,13 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
                 switch ( $setting_key ) {
 
                     case 'keep_exif':
-                        esc_html_e("Note: This data, called EXIF, adds to the size of the image. While this information might be important to photographers, it’s unnecessary for most users and safe to remove.", "ps-medienoptimierung");
+                        esc_html_e("Hinweis: Diese als EXIF ​​bezeichneten Daten erhöhen die Dateigröße des Bildes. Auch wenn diese Informationen für Fotografen wichtig sein mögen, sind sie für die meisten Nutzer überflüssig und können bedenkenlos entfernt werden.", "ps-medienoptimierung");
                         break;
                     case 'png_to_jpg':
-                        esc_html_e("Note: Any PNGs with transparency will be ignored. Smush will only convert PNGs if it results in a smaller file size. The resulting file will have a new filename and extension (JPEG), and any hard-coded URLs on your site that contain the original PNG filename will need to be updated.", "ps-medienoptimierung");
+                        esc_html_e("Hinweis: Alle PNGs mit Transparenz werden ignoriert. Medienoptimierung konvertiert PNGs nur, wenn dies zu einer kleineren Dateigröße führt. Die resultierende Datei erhält einen neuen Dateinamen und eine neue Erweiterung (JPEG), und alle fest codierten URLs auf deiner Webseite, die den ursprünglichen PNG-Dateinamen enthalten, müssen aktualisiert werden.", "ps-medienoptimierung");
                         break;
                     case 's3':
-                        esc_html_e("Note: For this process to happen automatically you need automatic smushing enabled.", "ps-medienoptimierung");
+                        esc_html_e("Hinweis: Damit dieser Vorgang automatisch abläuft, muss die automatische Medienoptimierung aktiviert sein.", "ps-medienoptimierung");
                         break;
                     case 'default':
                         break;

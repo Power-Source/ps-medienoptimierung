@@ -568,7 +568,7 @@ if ( ! class_exists( 'WpSmushPngtoJpg' ) ) {
 					$imagick->setCompressionQuality( $quality );
 					$imagick->writeImage( $n_file );
 				} catch ( Exception $e ) {
-					error_log( "PS Smush PNG to JPG Conversion error in " . __FILE__ . " at " . __LINE__ . " " . $e->getMessage() );
+					error_log( "Medienoptimierung PNG to JPG Conversion error in " . __FILE__ . " at " . __LINE__ . " " . $e->getMessage() );
 
 					return $result;
 				}

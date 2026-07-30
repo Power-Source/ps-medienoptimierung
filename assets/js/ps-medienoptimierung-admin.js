@@ -1029,7 +1029,7 @@ jQuery(function ($) {
      *
      */
     var set_accordion = function () {
-        //Accordion On PS Smush All Page
+        //Accordion On Medienoptimierung All Page
         var acc = document.getElementsByClassName("ps-smush-li-path");
         var i;
 
@@ -2159,7 +2159,7 @@ jQuery(function ($) {
         $('div.row button.ps-smush-browse').click();
     });
 
-    //PS Smush all : Scan Images
+    //Medienoptimierung all : Scan Images
     $('div.row').on('click', 'button.ps-smush-browse', function (e) {
 
         e.preventDefault();
@@ -2193,7 +2193,7 @@ jQuery(function ($) {
 
     });
 
-    //PS Smush all: Close button functionality
+    //Medienoptimierung all: Close button functionality
     $('.ps-smush-list-dialog').on('click', '.close', function (e) {
         e.preventDefault();
         close_dialog();

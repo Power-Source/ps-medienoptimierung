@@ -1,6 +1,6 @@
-=== PS Medienoptimierung ===
-Plugin Name: PS Medienoptimierung
-Version: 1.0.0
+=== Medienoptimierung ===
+Plugin Name: Medienoptimierung
+Version: 1.0.1
 Author: PSOURCE
 Author URI: https://psource.eimen.net/
 Contributors: DerNerd
@@ -16,7 +16,7 @@ Optimiere und komprimiere deine Bilder lokal in WordPress, ohne externe API-Abh�
 
 == Beschreibung ==
 
-<strong>PS Medienoptimierung hilft dir dabei, Bilddateien in deiner WordPress-Installation effizient zu optimieren.</strong>
+<strong>Medienoptimierung hilft dir dabei, Bilddateien in deiner WordPress-Installation effizient zu optimieren.</strong>
 
 Du kannst Bilder in der Medienbibliothek einzeln oder gesammelt verarbeiten, automatische Optimierung beim Upload aktivieren und auf Wunsch auch Bilder außerhalb des Upload-Ordners optimieren.
 
@@ -37,7 +37,7 @@ Die Optimierung läuft lokal in deiner Umgebung. So behältst du volle Kontrolle
 
 = Für wen ist das Plugin? =
 
-PS Medienoptimierung ist ideal, wenn du:
+Medienoptimierung ist ideal, wenn du:
 
 * deine Website schneller machen willst,
 * Speicherplatz sparen möchtest,
@@ -73,20 +73,14 @@ Ja. Es unterstützt Multisite-Installationen inklusive zentraler Steuerung über
 
 1. Lade das Plugin nach `/wp-content/plugins/ps-medienoptimierung/` hoch.
 2. Aktiviere es im WordPress-Backend unter `Plugins`.
-3. Öffne `Medien -> PS Medienoptimierung`.
+3. Öffne `Medien -> Medienoptimierung`.
 4. Passe die Einstellungen an und starte bei Bedarf die Bulk-Optimierung.
-
-== Upgrade-Hinweis ==
-
-= 1.0.0 =
-
-Erste offizielle Version von PS Medienoptimierung unter eigenem Branding.
 
 == Changelog ==
 
+= 1.0.1 =
+* Verbesserte Deutsche Ausgabe
+
 = 1.0.0 =
 
-* Initiale Veröffentlichung als PS Medienoptimierung
-* Lokale Bildoptimierung ohne externe API-Abhängigkeiten
-* Bulk-Optimierung, Auto-Optimierung und Ordner-Optimierung
-* Deutsche, informelle Benutzeroberfläche
+* Initiale Veröffentlichung als Medienoptimierung

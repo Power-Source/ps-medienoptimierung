@@ -1,18 +1,17 @@
 <?php
 /*
-Plugin Name: PS Medienoptimierung
+Plugin Name: Medienoptimierung
 Plugin URI: https://psource.eimen.net/
 Description: Lokale Bildoptimierung für WordPress-Medien ohne externe API-Abhängigkeiten.
 Author: NerdService
-Version: 1.0.0
+Version: 1.0.1
 Author URI: https://nerdservice.de/
 Text Domain: ps-medienoptimierung
-WDP ID: 912164
 */
 
 /*
   Copyright 2017-2026 PSOURCE (https://psource.eimen.net/)
-  Author - Aaron Edwards, Sam Najian, Umesh Kumar
+  Author - DerNerd
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License (Version 2 - GPLv2) as published by
   the Free Software Foundation.
@@ -31,7 +30,7 @@ WDP ID: 912164
  * Constants
  */
 $prefix  = 'PS_SMUSH_';
-$version = '1.0.0';
+$version = '1.0.1';
 
 // Local fork: do not force-disable other Smush variants.
 
@@ -53,14 +52,14 @@ $smush_constants = array(
 	'VERSION'           => $version,
 	'BASENAME'          => plugin_basename( __FILE__ ),
 	'API'               => '',
-	'UA'                => 'PS Medienoptimierung/' . $version . '; ' . network_home_url(),
+	'UA'                => 'Medienoptimierung/' . $version . '; ' . network_home_url(),
 	'DIR'               => plugin_dir_path( __FILE__ ),
 	'URL'               => plugin_dir_url( __FILE__ ),
 	'MAX_BYTES'         => 1000000,
 	'PREMIUM_MAX_BYTES' => 32000000,
 	'PREFIX'            => 'ps-smush-',
 	'TIMEOUT'           => $timeout,
-	//If Set to false, PS Smush switch backs to the Old Sync Optimisation
+	//If Set to false, Medienoptimierung switch backs to the Old Sync Optimisation
 	'ASYNC'             => true
 );
 
@@ -115,7 +114,7 @@ if ( ! function_exists( 'ps_smush_rating_message' ) ) {
  */
 if ( ! function_exists( 'ps_smush_email_message' ) ) {
 	function ps_smush_email_message( $message ) {
-		$message = "You're awesome for installing %s! Site speed isn't all image optimization though, so we've collected all the best speed resources we know in a single email - just for users of PS Smush!";
+		$message = "You're awesome for installing %s! Site speed isn't all image optimization though, so we've collected all the best speed resources we know in a single email - just for users of Medienoptimierung!";
 
 		return $message;
 	}

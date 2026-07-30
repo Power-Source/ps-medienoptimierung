@@ -874,7 +874,7 @@ if ( ! class_exists( 'WpSmush' ) ) {
 		 * the `manage_media_columns` hook.
 		 */
 		function columns( $defaults ) {
-			$defaults['smushit'] = 'PS Medienoptimierung';
+			$defaults['smushit'] = 'Medienoptimierung';
 
 			return $defaults;
 		}
@@ -1081,7 +1081,7 @@ if ( ! class_exists( 'WpSmush' ) ) {
 				// the status
 				$status_txt = __( 'Optimierung läuft..', 'ps-medienoptimierung' );
 
-				//Set PS Smush data to true in order to show the text
+				//Set Medienoptimierung data to true in order to show the text
 				$ps_smush_data = true;
 
 				// we need to show the smush button
