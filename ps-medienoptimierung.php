@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: Medienoptimierung
-Plugin URI: https://psource.eimen.net/
-Description: Lokale Bildoptimierung für WordPress-Medien ohne externe API-Abhängigkeiten.
+Plugin Name: PS Medienoptimierung
+Plugin URI: https://psource.eimen.net/psource/ps-medienoptimierung/
+Description: Lokale Bild- und Videooptimierung für WordPress-Medien ohne externe API-Abhängigkeiten.
 Author: NerdService
-Version: 1.0.1
-Author URI: https://nerdservice.de/
+Version: 1.0.2
+Author URI: https://nerdservice.eimen.net
 Text Domain: ps-medienoptimierung
 */
 
@@ -30,7 +30,7 @@ Text Domain: ps-medienoptimierung
  * Constants
  */
 $prefix  = 'PS_SMUSH_';
-$version = '1.0.1';
+$version = '1.0.2';
 
 // Local fork: do not force-disable other Smush variants.
 
@@ -71,6 +71,11 @@ foreach ( $smush_constants as $const_name => $constant_val ) {
 
 //Include main class
 require_once PS_SMUSH_DIR . 'lib/class-ps-smush.php';
+require_once PS_SMUSH_DIR . 'lib/class-ps-smush-video.php';
+require_once PS_SMUSH_DIR . 'lib/class-ps-smush-video-admin.php';
+
+$ps_smush_video = new PS_Smush_Video();
+$ps_smush_video_admin = new PS_Smush_Video_Admin( $ps_smush_video );
 
 /**
  * Filters the rating message, include stats if greater than 1Mb

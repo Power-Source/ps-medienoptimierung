@@ -110,6 +110,8 @@ if ( ! class_exists( 'WpSmushSettings' ) ) {
 
 			global $wpsmushit_admin;
 
+			do_action( 'ps_smush_before_save_settings' );
+
 			//Store that we need not redirect again on plugin activation
 			update_site_option( 'ps-smush-hide_smush_welcome', true );
 

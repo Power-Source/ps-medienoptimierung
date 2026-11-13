@@ -1354,6 +1354,83 @@ div.ps-smush-dir-limit .icon-fi-info:before {
     color: #9b9b9b;
 }
 
+.ps-video-overview {
+    clear: both;
+}
+
+.wpmud .ps-video-overview > .col-half {
+    box-sizing: border-box;
+}
+
+.wpmud .ps-video-overview > .col-half:first-of-type {
+    padding-right: 15px;
+}
+
+.wpmud .ps-video-overview > .col-half:last-of-type {
+    padding-left: 15px;
+}
+
+.ps-video-stats .box-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.ps-video-counts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.ps-video-count-primary,
+.ps-video-count-secondary {
+    width: 48%;
+}
+
+.ps-video-count-primary > span {
+    display: block;
+}
+
+.ps-video-count-primary > span:first-child {
+    color: #333;
+    font-size: 40px;
+    line-height: 1.4;
+}
+
+.ps-video-count-secondary p {
+    margin: 8px 0;
+}
+
+.ps-video-progress-inner {
+    height: 10px;
+    width: 0;
+    background: #17A8E3;
+    transition: width 0.3s;
+}
+
+.ps-video-log {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.ps-video-log summary {
+    cursor: pointer;
+}
+
+.ps-video-dimensions {
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 1110px) {
+    .wpmud .row.ps-video-overview > .col-half {
+        width: 100%;
+        padding: 0;
+    }
+}
+
 /** Bulk Smush - Progress Bar **/
 .ps-smush-progress-wrap {
     border-radius: 5px;

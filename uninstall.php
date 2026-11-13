@@ -47,8 +47,17 @@ $smushit_keys = array(
 	'networkwide',
 	'dir_path',
 	'scan',
-	'last_settings'
+	'last_settings',
+	'video-settings',
+	'video-log-cleared'
 );
+
+$remove_video_data = static function () {
+	wp_unschedule_hook( 'ps_smush_video_upload' );
+	delete_metadata( 'post', 0, '_ps_smush_video', '', true );
+	delete_metadata( 'post', 0, '_ps_smush_video_backup', '', true );
+	delete_metadata( 'post', 0, '_ps_smush_video_log_time', '', true );
+};
 
 //Cache Keys
 $cache_keys = array(
@@ -110,6 +119,7 @@ if ( is_multisite() ) {
 		if ( $blogs ) {
 			foreach ( $blogs as $blog ) {
 				switch_to_blog( $blog['blog_id'] );
+				$remove_video_data();
 				delete_metadata( $meta_type, null, $meta_key, $meta_value, $delete_all );
 				delete_metadata( $meta_type, null, 'ps-smush-lossy', '', $delete_all );
 				delete_metadata( $meta_type, null, 'ps-smush-resize_savings', '', $delete_all );
@@ -138,6 +148,7 @@ if ( is_multisite() ) {
 		$offset += $limit;
 	}
 } else {
+	$remove_video_data();
 	delete_metadata( $meta_type, null, $meta_key, $meta_value, $delete_all );
 	delete_metadata( $meta_type, null, 'ps-smush-lossy', '', $delete_all );
 	delete_metadata( $meta_type, null, 'ps-smush-resize_savings', '', $delete_all );

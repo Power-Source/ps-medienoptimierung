@@ -399,6 +399,7 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 				'unfinished_smush'        => esc_html__( "Bilder konnten nicht optimiert werden.", "ps-medienoptimierung" ),
 				'already_optimised'       => esc_html__( "Bereits optimiert", "ps-medienoptimierung" ),
 				'ajax_error'              => esc_html__( "Ajax-Fehler", "ps-medienoptimierung" ),
+				'settings_save_error'     => esc_html__( 'Die Einstellungen konnten nicht gespeichert werden. Bitte Berechtigung und Serververbindung prüfen.', 'ps-medienoptimierung' ),
 				'all_done'                => esc_html__( "Fertig!", "ps-medienoptimierung" ),
 				'quick_setup_title'       => __( "SCHNELLEINRICHTUNG", "ps-medienoptimierung" ) . '<form method="post" class="smush-skip-setup float-r"><input type="hidden" name="action" value="skipSmushSetup"/>' . wp_nonce_field( 'skipSmushSetup', '_wpnonce', true, false ) . '<button type="submit" class="button button-small button-secondary skip-button">' . __( "Überspringen", "ps-medienoptimierung" ) . '</button></form>',
 				'sync_stats'              => esc_html__( "Einen Moment, die Statistiken werden synchronisiert.", "ps-medienoptimierung" )

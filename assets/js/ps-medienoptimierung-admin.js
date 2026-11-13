@@ -1833,6 +1833,15 @@ jQuery(function ($) {
 
         //Show the spinner
         var self = $(this);
+        var initial_text = self.val();
+        function settings_error(response) {
+            var message = response && response.data && response.data.message ? response.data.message : ps_smush_msgs.settings_save_error;
+            self.prop('disabled', false).val(initial_text);
+            self.parent().find('span.spinner').removeClass('is-active');
+            $('#ps-smush-settings-error').remove();
+            $('<div id="ps-smush-settings-error" class="ps-smush-notice" role="alert" tabindex="-1">')
+                .text(message).prependTo('form#ps-smush-settings-form').focus();
+        }
         self.parent().find('span.spinner').addClass('is-active');
 
         //Save settings if in network admin
@@ -1846,9 +1855,15 @@ jQuery(function ($) {
             param = jQuery.param(param) + '&' + jQuery('form#ps-smush-settings-form').serialize();
 
             //Send ajax, Update Settings, And Check For resmush
-            jQuery.post(ajaxurl, param).done(function () {
+            jQuery.post(ajaxurl, param).done(function (response) {
+                if (!response || !response.success) {
+                    settings_error(response);
+                    return;
+                }
                 jQuery('form#ps-smush-settings-form').submit();
                 return true;
+            }).fail(function (xhr) {
+                settings_error(xhr.responseJSON);
             });
         } else {
 
@@ -1892,9 +1907,15 @@ jQuery(function ($) {
             param = jQuery.param(param) + '&' + jQuery('form#ps-smush-settings-form').serialize();
 
             //Send ajax, Update Settings, And Check For resmush
-            jQuery.post(ajaxurl, param).done(function () {
+            jQuery.post(ajaxurl, param).done(function (response) {
+                if (!response || !response.success) {
+                    settings_error(response);
+                    return;
+                }
                 jQuery('form#ps-smush-settings-form').submit();
                 return true;
+            }).fail(function (xhr) {
+                settings_error(xhr.responseJSON);
             });
         }
     });
