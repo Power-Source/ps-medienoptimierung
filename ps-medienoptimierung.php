@@ -7,6 +7,7 @@ Author: NerdService
 Version: 1.0.2
 Author URI: https://nerdservice.eimen.net
 Text Domain: ps-medienoptimierung
+Domain Path: /languages
 */
 
 /*

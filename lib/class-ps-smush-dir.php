@@ -1331,7 +1331,7 @@ if ( ! class_exists( 'WpSmushDir' ) ) {
                     <div class="box">
                         <div class="title"><h3><?php esc_html_e( "Ordnerliste", "ps-medienoptimierung" ); ?></h3>
                             <div aria-hidden="true" class="close">&times;</div>
-                            <button class="wpdui-sr-only"><span class="wpdui-sr-only">Schließen</span></button>
+                            <button class="wpdui-sr-only"><span class="wpdui-sr-only"><?php esc_html_e( 'Schließen', 'ps-medienoptimierung' ); ?></span></button>
                         </div>
                         <div class="ps-smush-instruct"><?php esc_html_e( "Wähle den Ordner, den du optimieren möchtest.", "ps-medienoptimierung" ); ?></div>
                         <div class="content">

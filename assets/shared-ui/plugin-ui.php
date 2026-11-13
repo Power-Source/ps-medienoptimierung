@@ -46,9 +46,9 @@ if ( ! class_exists( 'WDEV_Plugin_Ui' ) ) {
 		 */
 		static public function reset() {
 			self::$i10n = array(
-				'empty_search' => __( 'Nothing found', 'wpmudev' ),
-				'default_msg_ok' => __( 'Okay, we saved your changes!', 'wpmudev' ),
-				'default_msg_err' => __( 'Oops, we could not do this...', 'wpmudev' ),
+				'empty_search' => __( 'Nichts gefunden', 'ps-medienoptimierung' ),
+				'default_msg_ok' => __( 'Deine Änderungen wurden gespeichert.', 'ps-medienoptimierung' ),
+				'default_msg_err' => __( 'Das hat leider nicht funktioniert.', 'ps-medienoptimierung' ),
 			);
 		}
 
@@ -262,7 +262,7 @@ if ( ! class_exists( 'WDEV_Plugin_Ui' ) ) {
 			if ( empty( $msg['id'] ) ) {
 				$msg_dismiss = '';
 			} else {
-				$msg_dismiss = __( 'Saving', 'wpmudev' );
+				$msg_dismiss = __( 'Wird gespeichert …', 'ps-medienoptimierung' );
 			}
 
 			$show_actions = $msg['can_dismiss'] || $msg['cta'];
@@ -291,7 +291,7 @@ if ( ! class_exists( 'WDEV_Plugin_Ui' ) ) {
 						<?php echo $msg['cta']; ?>
 						<?php if ( $msg['can_dismiss'] ) : ?>
 						<button class="frash-notice-dismiss" data-msg="<?php echo esc_attr( $msg_dismiss ); ?>">
-							<?php esc_html_e( 'Dismiss', 'wpmudev' ); ?>
+							<?php esc_html_e( 'Schließen', 'ps-medienoptimierung' ); ?>
 						</button>
 						<?php endif; ?>
 					</div>

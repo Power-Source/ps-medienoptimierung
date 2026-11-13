@@ -275,7 +275,7 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 			global $admin_page_suffix, $wpsmush_bulkui;
 
 			//Bulk Smush Page for each site
-			$admin_page_suffix = add_media_page( 'Medienoptimierung', 'Medienoptimierung', 'edit_others_posts', 'ps-smush-bulk', array(
+			$admin_page_suffix = add_media_page( __( 'Medienoptimierung', 'ps-medienoptimierung' ), __( 'Medienoptimierung', 'ps-medienoptimierung' ), 'edit_others_posts', 'ps-smush-bulk', array(
 				$wpsmush_bulkui,
 				'ui'
 			) );
@@ -284,7 +284,7 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 			$page = 'settings.php';
 			$cap  = 'manage_network_options';
 
-			add_submenu_page( $page, 'Medienoptimierung', 'Medienoptimierung', $cap, 'ps-smush', array(
+			add_submenu_page( $page, __( 'Medienoptimierung', 'ps-medienoptimierung' ), __( 'Medienoptimierung', 'ps-medienoptimierung' ), $cap, 'ps-smush', array(
 				$wpsmush_bulkui,
 				'ui'
 			) );

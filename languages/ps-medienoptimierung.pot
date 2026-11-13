@@ -1,0 +1,1426 @@
+# Copyright (C) 2026 NerdService
+# This file is distributed under the same license as the PS Medienoptimierung plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: PS Medienoptimierung 1.0.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ps-medienoptimierung\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-13T23:16:51+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: ps-medienoptimierung\n"
+
+#. Plugin Name of the plugin
+#: ps-medienoptimierung.php
+msgid "PS Medienoptimierung"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: ps-medienoptimierung.php
+msgid "https://psource.eimen.net/psource/ps-medienoptimierung/"
+msgstr ""
+
+#. Description of the plugin
+#: ps-medienoptimierung.php
+msgid "Lokale Bild- und Videooptimierung für WordPress-Medien ohne externe API-Abhängigkeiten."
+msgstr ""
+
+#. Author of the plugin
+#: ps-medienoptimierung.php
+msgid "NerdService"
+msgstr ""
+
+#. Author URI of the plugin
+#: ps-medienoptimierung.php
+msgid "https://nerdservice.eimen.net"
+msgstr ""
+
+#: assets/shared-ui/plugin-ui.php:49
+msgid "Nichts gefunden"
+msgstr ""
+
+#: assets/shared-ui/plugin-ui.php:50
+msgid "Deine Änderungen wurden gespeichert."
+msgstr ""
+
+#: assets/shared-ui/plugin-ui.php:51
+msgid "Das hat leider nicht funktioniert."
+msgstr ""
+
+#: assets/shared-ui/plugin-ui.php:265
+msgid "Wird gespeichert …"
+msgstr ""
+
+#: assets/shared-ui/plugin-ui.php:294
+#: lib/class-ps-smush-dir.php:1334
+msgid "Schließen"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:218
+msgid "Netzwerkeinstellungen für alle Unterwebseiten verwenden."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:219
+msgid "Multisite-Steuerung"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:220
+msgid "Lege fest, ob Netzwerkeinstellungen für alle Unterwebseiten gelten oder ob Unterwebseiten-Admins die Optimierungs-Einstellungen selbst steuern können."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:223
+msgid "Bilder beim Hochladen automatisch optimieren"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:224
+msgid "Automatische Optimierung"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:225
+msgid "Wenn du Bilder hochlädst, werden sie automatisch für dich optimiert."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:228
+msgid "Super-Optimierung aktivieren"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:229
+#: lib/class-ps-smush-admin.php:387
+#: lib/class-ps-smush.php:1076
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:147
+#: lib/nextgen-integration/class-ps-smush-nextgen-stats.php:262
+msgid "Super-Optimierung"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:230
+msgid "Komprimiere Bilder bis zu 2× stärker als bei der normalen Optimierung – bei kaum sichtbarem Qualitätsverlust."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:233
+msgid "Originalbilder in voller Größe optimieren"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:234
+#: lib/class-ps-smush-admin.php:244
+#: lib/class-ps-smush-admin.php:249
+msgid "Originalbilder"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:235
+msgid "Jedes Mal, wenn du ein Bild hochlädst, erstellt WordPress für jede registrierte Bildgröße deines Themes eine neue Version. Standardmäßig werden nur diese generierten Versionen optimiert. Aktiviere diese Einstellung, um auch deine Originalbilder zu optimieren. Hinweis: Das verbessert in der Regel nicht die Ladegeschwindigkeit."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:238
+msgid "EXIF-Daten beibehalten"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:239
+msgid "EXIF-Daten"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:240
+msgid "EXIF-Daten speichern Kameraeinstellungen, Brennweite, Datum, Uhrzeit und Standortinformationen in Bilddateien. Diese vergrößern die Dateien – als Fotograf möchtest du diese Daten evtl. erhalten."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:243
+msgid "Originalbilder skalieren"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:245
+msgid "Lege eine maximale Höhe und Breite für hochgeladene Bilder fest. Zu große Bilder werden automatisch skaliert, bevor sie in die Medienbibliothek kommen. Diese Einstellung gilt nicht für die Ordner-Optimierung."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:248
+msgid "Kopie der Originalbilder erstellen"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:250
+msgid "Die Originalbilder werden separat gespeichert, damit du sie jederzeit wiederherstellen kannst. Hinweis: Das kann den Upload-Ordner fast verdoppeln."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:253
+msgid "PNGs automatisch in JPEGs umwandeln (verlustbehaftet)"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:254
+msgid "PNG-zu-JPEG-Konvertierung"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:255
+msgid "Beim Komprimieren einer PNG-Datei wird geprüft, ob eine Konvertierung zu JPEG die Dateigröße weiter reduziert."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:278
+#: lib/class-ps-smush-admin.php:287
+#: lib/class-ps-smush-ui.php:805
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:59
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:78
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:80
+msgid "Medienoptimierung"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:388
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:148
+msgid "Jetzt optimieren"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:389
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:149
+msgid "{{errors}} Bild(er) wurden wegen eines Fehlers übersprungen."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:390
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:150
+msgid "Alle Bilder sind vollständig optimiert."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:391
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:151
+msgid "Bild wird wiederhergestellt.."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:392
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:152
+msgid "Bild wird optimiert.."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:393
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:153
+msgid "Bilder werden geprüft.."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:394
+msgid "Alle Optimierungsfunktionen sind aktiv."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:395
+msgid "Mitgliedschafts-Checks sind in dieser lokalen Version deaktiviert."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:396
+msgid "Dateipfad fehlt."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:398
+#: lib/class-ps-smush.php:658
+msgid "Bild konnte nicht optimiert werden."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:399
+msgid "Bilder konnten nicht optimiert werden."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:400
+#: lib/class-ps-smush.php:991
+#: lib/class-ps-smush.php:998
+#: lib/nextgen-integration/class-ps-smush-nextgen-stats.php:181
+#: lib/nextgen-integration/class-ps-smush-nextgen-stats.php:184
+msgid "Bereits optimiert"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:401
+msgid "Ajax-Fehler"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:402
+msgid "Die Einstellungen konnten nicht gespeichert werden. Bitte Berechtigung und Serververbindung prüfen."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:403
+msgid "Fertig!"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:404
+#: lib/class-ps-smush-ui.php:63
+msgid "SCHNELLEINRICHTUNG"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:404
+#: lib/class-ps-smush-ui.php:752
+msgid "Überspringen"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:405
+msgid "Einen Moment, die Statistiken werden synchronisiert."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:580
+#, php-format
+msgid "%s%d%s Bild(er) konnten nicht optimiert werden – keine ID empfangen."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:596
+#, php-format
+msgid "You've exceeded Bulk Smush limit of %d Bilder at once for standard users. Click on Bulk Smush to continue."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:620
+#, php-format
+msgid "%s%d%s Bild(er) wurden übersprungen."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:693
+#, php-format
+msgid "%s%d%s Bild(er) konnten wegen eines Timeouts nicht optimiert werden. Du kannst den Request-Timeout erhöhen, damit die Optimierung genug Zeit für größere Dateien hat. `define('PS_SMUSH_API_TIMEOUT', 150);`"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:752
+#: lib/class-ps-smush-nextgen.php:433
+msgid "Du hast keine Berechtigung, hochgeladene Dateien zu bearbeiten."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:756
+#: lib/class-ps-smush-nextgen.php:437
+msgid "Keine Anhang-ID angegeben."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:768
+msgid "Bild übersprungen – Filter `ps_smush_image` prüfen."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:957
+#, php-format
+msgid "<strong>%d of %d Bilder</strong> were sent for smushing:"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:1147
+#: lib/class-ps-smush.php:1082
+msgid "Optimierung läuft.."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:1153
+#: lib/class-ps-smush.php:1101
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:257
+msgid "Jetzt optimieren!"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:1174
+msgid "Einstellungen"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:1294
+msgid "Bild nicht optimiert, Felder leer."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:1301
+#: lib/class-ps-smush-nextgen.php:621
+msgid "Bild konnte nicht optimiert werden, Nonce-Verifizierung fehlgeschlagen. Bitte lade die Seite neu."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:1343
+msgid "In deiner Medienbibliothek wurden noch keine Bilder gefunden – es gibt nichts zu optimieren! Lade Bilder hoch, lade diese Seite neu und leg los!"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:1358
+msgid "Super! Alle Bilder sind mit deinen aktuellen Einstellungen optimiert."
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:1561
+#: lib/class-ps-smush-ui.php:779
+#, php-format
+msgid "Du hast Bilder, die noch optimiert werden müssen. %sJetzt alle optimieren!%s"
+msgstr ""
+
+#: lib/class-ps-smush-admin.php:2126
+#: lib/class-ps-smush.php:1051
+#: lib/nextgen-integration/class-ps-smush-nextgen-stats.php:224
+msgid "Optimierungs-Statistiken"
+msgstr ""
+
+#: lib/class-ps-smush-backup.php:148
+#: lib/class-ps-smush-nextgen.php:520
+msgid "Fehler beim Wiederherstellen – Felder leer."
+msgstr ""
+
+#: lib/class-ps-smush-backup.php:155
+#: lib/class-ps-smush-nextgen.php:528
+msgid "Bild nicht wiederhergestellt, Nonce-Verifizierung fehlgeschlagen."
+msgstr ""
+
+#: lib/class-ps-smush-backup.php:282
+#: lib/class-ps-smush-nextgen.php:603
+msgid "Bild konnte nicht wiederhergestellt werden"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:82
+msgid "Einsparungen durch Ordner-Optimierung"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:84
+msgid "Statistiken werden aktualisiert"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:94
+msgid "Bilder optimieren, die sich nicht im Upload-Ordner befinden."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:96
+msgid "Wähle einen Ordner, den du optimieren möchtest."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:96
+msgid "Ordner auswählen"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:210
+msgid "LETZTEN SCAN FORTSETZEN"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:241
+msgid "ORDNER-OPTIMIERUNG"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:246
+msgid "Zusätzlich zu deinen Medien-Uploads kannst du auch Bilder außerhalb deines Upload-Ordners optimieren. Füge einfach die gewünschten Ordner hinzu und starte die Massenoptimierung!"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:259
+msgid "Alle Bilder im ausgewählten Ordner sind optimiert und aktuell. Super!"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:262
+#, php-format
+msgid "%s/%s Bild(er) erfolgreich optimiert, jedoch konnte(n) %s Bild(er) wegen eines Fehlers nicht optimiert werden."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:265
+msgid "Die Ordner-Optimierung wird im Hintergrund in Stapeln verarbeitet."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:269
+#: lib/class-ps-smush-ui.php:134
+#: lib/class-ps-smush-ui.php:658
+#: lib/class-ps-smush-video-admin.php:278
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:392
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:433
+msgid "BULK-OPTIMIERUNG"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:271
+msgid "Ordner-Optimierung stoppen."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:272
+#: lib/class-ps-smush-ui.php:714
+msgid "ABBRECHEN"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:280
+msgid "ORDNER WÄHLEN"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:450
+msgid "Ordner von der Optimierungsliste ausschließen"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:589
+msgid "In dem ausgewählten Ordner wurden keine Bilder gefunden."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:911
+#, php-format
+msgid "%d Bilder"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:944
+msgid "Warte.."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:1066
+msgid "Ungültige Bild-ID"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:1100
+msgid "Bild-ID im letzten Scan nicht gefunden"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:1113
+msgid "Bild konnte nicht optimiert werden"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:1157
+#: lib/class-ps-smush-dir.php:1290
+#, php-format
+msgid "Du hast insgesamt %d Bilder optimiert."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:1234
+msgid "Die Bildliste des letzten Scans konnte nicht abgerufen werden. Bitte starte einen neuen Scan."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:1332
+msgid "Ordnerliste"
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:1336
+msgid "Wähle den Ordner, den du optimieren möchtest."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:1340
+msgid "Auch Bilder in Unterordnern des gewählten Ordners werden optimiert."
+msgstr ""
+
+#: lib/class-ps-smush-dir.php:1343
+msgid "ORDNER HINZUFÜGEN"
+msgstr ""
+
+#: lib/class-ps-smush-nextgen.php:66
+msgid "NextGen Gallery-Integration aktivieren"
+msgstr ""
+
+#: lib/class-ps-smush-nextgen.php:67
+msgid "NextGen Gallery"
+msgstr ""
+
+#: lib/class-ps-smush-nextgen.php:68
+msgid "Bilder direkt über die NextGen Gallery-Einstellungen optimieren."
+msgstr ""
+
+#: lib/class-ps-smush-nextgen.php:374
+msgid "Metadaten des Bildes konnten nicht gefunden werden – das Bild wurde möglicherweise gelöscht."
+msgstr ""
+
+#: lib/class-ps-smush-nextgen.php:614
+msgid "Bild konnte nicht verarbeitet werden – Felder leer."
+msgstr ""
+
+#: lib/class-ps-smush-nextgen.php:638
+#, php-format
+msgid "Bild konnte nicht optimiert werden: %s"
+msgstr ""
+
+#: lib/class-ps-smush-s3.php:51
+msgid "Amazon S3-Unterstützung aktivieren"
+msgstr ""
+
+#: lib/class-ps-smush-s3.php:52
+msgid "Amazon S3"
+msgstr ""
+
+#: lib/class-ps-smush-s3.php:53
+#, php-format
+msgid "Du speicherst deine Bilder in S3-Buckets über %sWP Offload S3%s? Aktiviere diese Option, damit die Optimierung diese Assets automatisch erkennt und verarbeitet – auch wenn Dateien vom Server entfernt werden."
+msgstr ""
+
+#: lib/class-ps-smush-s3.php:103
+msgid "Beim Zugriff auf WP Offload S3 ist ein Problem aufgetreten. Stelle sicher, dass das Plugin aktiv und konfiguriert ist."
+msgstr ""
+
+#: lib/class-ps-smush-s3.php:110
+#, php-format
+msgid "It seems you haven't finished setting up WP Offload S3 yet. %sConfigure%s it now to enable Amazon S3 support."
+msgstr ""
+
+#: lib/class-ps-smush-s3.php:114
+msgid "Amazon S3 support is active."
+msgstr ""
+
+#: lib/class-ps-smush-s3.php:166
+#, php-format
+msgid "WP Offload S3 ist installiert und die Option <strong>Dateien vom Server entfernen</strong> ist aktiv. Um S3-Bilder zu optimieren, aktiviere die <a href='%s'><strong>Amazon S3-Unterstützung</strong></a> in den Einstellungen."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:47
+msgid "Dismiss Welcome notice"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:64
+msgid "Welcome to Smush - Winner of Torque Plugin Madness 2017! Let's quickly set up the basics for you, then you can fine tune each setting as you go - our recommendations are on by default."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:114
+msgid "Get Started"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:129
+#, php-format
+msgid "Einzelne Bilder über deine %sMedienbibliothek%s optimieren"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:129
+msgid "Medienbibliothek"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:148
+msgid "EINSTELLUNGEN"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:163
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:450
+msgid "Prüft, ob Bilder noch weiter optimiert werden können. Nützlich nach Einstellungsänderungen."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:163
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:450
+msgid "BILDER NEU PRÜFEN"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:164
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:451
+msgid "STATISTIKEN"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:175
+#, php-format
+msgid "Du hast insgesamt %d Bilder optimiert"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:185
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:462
+msgid "Optimierte Bilder"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:194
+msgid "Anhänge optimiert"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:201
+msgid "Bilder verkleinert"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:209
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:468
+msgid "Gesamteinsparung"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:225
+msgid "Super-gequetschte Einsparungen"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:232
+#: lib/class-ps-smush-ui.php:235
+#, php-format
+msgid "Komprimiere Bilder bis zu 2× stärker als bei der normalen Optimierung – bei kaum sichtbarem Qualitätsverlust. %sEnable Super-Optimierung%s"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:251
+msgid "Einsparungen durch Größenänderung"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:259
+#: lib/class-ps-smush-ui.php:262
+#, php-format
+msgid "Speichere Ressourcen, indem du hochgeladene Bilder auf eine maximale Größe skalierst. %sBildgröße begrenzen aktivieren%s"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:265
+msgid "Keine Einsparungen durch Skalierung"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:274
+msgid "PNG to JPEG savings"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:299
+msgid "Basiert auf durchschnittlichen Einsparungswerten"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:299
+msgid "Einsparungs-Schaetzung"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:341
+msgid "ADVANCED EINSTELLUNGEN"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:367
+msgid "By default, Smush only compresses your cropped image sizes, not your original full-size images."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:505
+msgid "Spare jede Menge Speicherplatz, indem Du keine übergroßen Bilder auf Deinem Server speicherst."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:624
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:377
+msgid "No attachments found - Upload some images"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:626
+#, php-format
+msgid "We haven’t found any images in your %smedia library%s yet so there’s no smushing to be done! Once you upload images, reload this page and start playing!"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:629
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:382
+msgid "BILDER HOCHLADEN"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:634
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:387
+msgid "Alle Bilder sind optimiert und aktuell. Großartig!"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:638
+msgid "PageSpeed macht noch Probleme? Probier mal das hier..."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:641
+msgid "Aktiviere erweiterte verlustbehaftete Komprimierung, um noch mehr rauszuholen."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:643
+#, php-format
+msgid "Aktiviere %sSuper-Optimierung%s für erweiterte verlustbehaftete Komprimierung – bei kaum sichtbarem Qualitätsverlust."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:645
+#, php-format
+msgid "Achte darauf, dass deine Bilder die richtige Größe für dein Theme haben. %sMehr erfahren%s."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:648
+#, php-format
+msgid "Aktiviere %sOriginalbilder skalieren%s, um große Bilder auf eine sinnvolle Größe zu reduzieren und viel Speicherplatz zu sparen."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:652
+msgid "VERWERFEN"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:667
+#, php-format
+msgid "%s, Du hast %s%s%d%s Anhang%s, der optimiert werden muss!"
+msgid_plural "%s, Du hast %s%s%d%s Anhänge%s, die optimiert werden müssen!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-ps-smush-ui.php:672
+msgid "Alle Bilder in der Medienbibliothek optimieren"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:677
+msgid "Tip: Aktiviere Super-Optimierung in den Einstellungen, um noch mehr Einsparungen bei fast keiner sichtbaren Qualitätsminderung zu erzielen."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:699
+#, php-format
+msgid "%sDie Massenoptimierung läuft derzeit.%s Du musst diese Seite geöffnet lassen, damit der Vorgang abgeschlossen werden kann."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:710
+#, php-format
+msgid "%s%d%s deiner Medienanhänge wurden optimiert."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:714
+msgid "Stoppe den aktuellen Massenoptimierungsprozess."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:751
+#, php-format
+msgid "%s, Du hast %s%s%d%s Anhang%s, der neu komprimiert werden muss!"
+msgid_plural "%s, Du hast %s%s%d%s Anhänge%s, die neu komprimiert werden müssen!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-ps-smush-ui.php:752
+msgid "Neuoptimierung der Bilder überspringen"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:772
+msgid "Deine Einstellungen wurden gespeichert!"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:807
+#, php-format
+msgid "Automatische Optimierung ist %saktiviert%s. Neu hochgeladene Bilder werden automatisch komprimiert."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:807
+#, php-format
+msgid "Automatische Optimierung ist %sdeaktiviert%s. Neu hochgeladene Bilder müssen manuell optimiert werden."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:859
+msgid "Prüfe gerade, ob der lokale Optimierer verfügbar ist.."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:860
+msgid "Medienoptimierung läuft ohne externe Mitgliedschafts-Prüfung."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:882
+msgid "UPDATE EINSTELLUNGEN"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:884
+msgid "Medienoptimierung prüft automatisch, ob Bilder erneut optimiert werden müssen."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:910
+msgid "Medienoptimierungseinstellungen wurden aktualisiert. Es wird ein schneller Scan durchgeführt, um zu prüfen, ob eines der Bilder erneut optimiert werden muss."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:931
+#, php-format
+msgid "Bei jedem Bild-Upload erstellt WordPress verkleinerte Versionen für alle Standard- und benutzerdefinierten Bildgrößen deines Themes. Dadurch gibt es mehrere Versionen jedes Bildes in deiner Medienbibliothek.%sWähle unten die Bildgröße(n), die du optimieren möchtest:%s"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:976
+msgid "Max width"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:979
+msgid "Max height"
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:982
+#, php-format
+msgid "Aktuell ist deine größte Bildgröße auf %s%dpx Breite %s %dpx Höhe%s eingestellt."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:983
+msgid "Nur zur Info: Die von Dir eingegebene Breite ist geringer als die Deines größten Bildes, was zu einer verpixelten Darstellung führen kann."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:984
+msgid "Nur zur Info: Die von Dir eingegebene Höhe ist geringer als die Deines größten Bildes, was zu einer verpixelten Darstellung führen kann."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:1044
+msgid "Hinweis: Diese als EXIF ​​bezeichneten Daten erhöhen die Dateigröße des Bildes. Auch wenn diese Informationen für Fotografen wichtig sein mögen, sind sie für die meisten Nutzer überflüssig und können bedenkenlos entfernt werden."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:1047
+msgid "Hinweis: Alle PNGs mit Transparenz werden ignoriert. Medienoptimierung konvertiert PNGs nur, wenn dies zu einer kleineren Dateigröße führt. Die resultierende Datei erhält einen neuen Dateinamen und eine neue Erweiterung (JPEG), und alle fest codierten URLs auf deiner Webseite, die den ursprünglichen PNG-Dateinamen enthalten, müssen aktualisiert werden."
+msgstr ""
+
+#: lib/class-ps-smush-ui.php:1050
+msgid "Hinweis: Damit dieser Vorgang automatisch abläuft, muss die automatische Medienoptimierung aktiviert sein."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:33
+msgid "Video wird konvertiert und vollständig geprüft …"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:34
+msgid "Sammelverarbeitung abgeschlossen."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:35
+msgid "Angehalten. Das laufende Video wurde noch fertig verarbeitet."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:36
+msgid "Serverantwort fehlt oder ist ungültig. Die Verarbeitung wurde angehalten. Bitte vor einem Neustart den Videostatus prüfen; der Server könnte noch arbeiten."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:37
+#, php-format
+msgid "Verarbeitet: %1$d · Erfolgreich: %2$d · Fehler: %3$d"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:38
+msgid "größer"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:39
+msgid "kleiner"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:40
+msgid "unverändert"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:41
+msgid "Video-Codecs und Optimierungsbedarf werden geprüft …"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:42
+msgid "Videoprüfung abgeschlossen."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:43
+#: lib/class-ps-smush-video-admin.php:276
+#, php-format
+msgid "Noch zu optimierende Videos: %d"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:44
+msgid "Alle unterstützten Videos sind mit den aktuellen Einstellungen geprüft und optimiert."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:45
+msgid "Die Videostatistik konnte nicht aktualisiert werden."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:46
+msgid "Protokoll wird geleert …"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:47
+#: lib/class-ps-smush-video-admin.php:148
+msgid "Das Videoprotokoll konnte nicht geleert werden."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:59
+msgid "Die Videoeinstellungen dürfen nur in der zuständigen Medienoptimierung geändert werden. Bei zentraler Steuerung ist das die Netzwerkverwaltung."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:63
+msgid "Die Videoqualität muss zwischen 18 und 30 liegen."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:72
+msgid "Videobreite und -höhe müssen gerade Pixelwerte zwischen 16 und 7680 sein."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:79
+msgid "Die Videoeinstellungen konnten nicht gespeichert werden."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:86
+msgid "Keine Berechtigung zur Videooptimierung."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:103
+msgid "Die Videoliste konnte nicht aus der Datenbank gelesen werden."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:119
+msgid "Keine Berechtigung für dieses Video."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:123
+msgid "Unbekannter Videoauftrag."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:150
+msgid "Protokoll geleert. Optimierungsstände, Einsparungen und offene Fehler bleiben erhalten."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:175
+msgid "Noch nicht für Mobilgeräte optimiert."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:179
+#: lib/class-ps-smush-video-admin.php:213
+msgid "Videooptimierung"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:191
+msgid "Automatische Videooptimierung"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:192
+msgid "Videos beim Hochladen automatisch für Mobilgeräte konvertieren"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:193
+msgid "Standardmäßig deaktiviert. Die Konvertierung läuft nach dem Upload über WP-Cron. Ohne regelmäßige Seitenaufrufe bitte einen System-Cron einrichten. Fehler erscheinen in der Medienoptimierung und am Medium."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:196
+msgid "Videokomprimierung"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:197
+msgid "Auch die Dateigröße bereits kompatibler Videos optimieren"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:198
+msgid "Kleinere Dateien sparen Speicher und Ladezeit. Ist ein Video bereits handykompatibel und wird nicht skaliert, bleibt das Original erhalten, falls die Komprimierung keine kleinere Datei ergibt."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:201
+msgid "Videogröße begrenzen"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:202
+msgid "Große Videos proportional verkleinern"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:203
+msgid "Begrenzt die Auflösung ohne Hochskalieren oder Verzerren. Standardmäßig deaktiviert. Kleinere Abmessungen können die Dateigröße zusätzlich reduzieren."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:206
+msgid "Originalvideos"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:207
+msgid "Kopie der Originalvideos erstellen"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:208
+msgid "Standardmäßig deaktiviert, um Speicherplatz zu sparen. Ohne Sicherung ist eine Wiederherstellung nach erfolgreichem Ersetzen nicht möglich. Vorhandene Sicherungen bleiben beim Abschalten erhalten."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:216
+msgid "Lokale Codec-Anpassung für Mobilgeräte: MP4 mit H.264, 8 Bit, 4:2:0 und AAC-Ton. Dateigröße und maximale Auflösung lassen sich unabhängig davon optimieren."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:217
+#, php-format
+msgid "Verfügbarer lokaler Encoder: %s"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:232
+msgid "Breite"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:234
+msgid "Höhe"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:236
+msgid "Pixel. Gilt nur mit aktivierter Größenbegrenzung. Das Seitenverhältnis bleibt erhalten."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:243
+msgid "Videoqualität"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:246
+msgid "Qualitätswert 18–30, Standard 23. Kleinere Werte bedeuten höhere Qualität und größere Dateien. Codec-Kompatibilität bleibt immer aktiviert."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:267
+msgid "Bild- und Videoeinstellungen werden zentral unter Medienoptimierung in der Netzwerkverwaltung gesteuert. Die Sammelverarbeitung gilt für die Videos dieser Website."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:274
+msgid "Video-Bulk-Optimierung"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:277
+msgid "Lokale MP4-Videos für Mobilgeräte anpassen und auf Wunsch komprimieren oder verkleinern. Bestehende URLs bleiben erhalten."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:282
+msgid "Video-Fortschritt"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:287
+msgid "Nach aktuellem Video anhalten"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:289
+msgid "Originale werden erst nach erfolgreicher Prüfung ersetzt. Für die Stapelverarbeitung diese Seite geöffnet lassen."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:290
+msgid "Ergebnisse und Fehler"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:303
+msgid "PROTOKOLL LEEREN"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:304
+msgid "Leert nur diese Ergebnisliste. Optimierungsstände, Einsparungen und offene Fehler bleiben erhalten."
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:313
+msgid "Video-Statistiken"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:314
+msgid "VIDEOS ERNEUT PRÜFEN"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:318
+msgid "Handykompatible Videos"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:320
+msgid "Videos optimiert"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:321
+msgid "Videos verkleinert"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:324
+msgid "Videos gesamt"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:324
+msgid "Noch zu optimieren"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:324
+msgid "Noch ungeprüft oder verändert"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:324
+msgid "Fehler"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:324
+msgid "Nicht unterstützte Videos"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:327
+msgid "Gesamteinsparung / Mehrbedarf (+)"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:328
+msgid "Dateigröße vorher / nachher"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:329
+msgid "Einsparung bei verkleinerten Videos"
+msgstr ""
+
+#: lib/class-ps-smush-video-admin.php:330
+msgid "Bereits passende Codecs zählen als handykompatibel, auch wenn die Dateigröße noch optimiert werden kann. Erneut prüfen aktualisiert den Bedarf ohne Dateien zu verändern."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:61
+msgid "Die lokale Videooptimierung benötigt die PHP-Funktionen proc_open und proc_terminate. Bitte den Hoster um Freigabe bitten."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:67
+msgid "Das Videoprogramm konnte nicht gestartet werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:102
+msgid "Zeitlimit der Videoverarbeitung erreicht. Das Original wurde nicht ersetzt."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:105
+msgid "Das Videoprogramm hat einen Fehler gemeldet:"
+msgstr ""
+
+#: lib/class-ps-smush-video.php:144
+msgid "Kein nutzbarer lokaler Videoencoder verfügbar. Benötigt werden FFmpeg und ffprobe mit libx264/AAC oder GStreamer mit gst-launch, gst-inspect, gst-discoverer, x264enc, AAC-Encoder und MP4-Muxer. PHP muss lokale Prozesse erlauben. Bitte den Hoster um Einrichtung bitten. Videos bleiben unverändert."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:169
+msgid "Videospur oder Laufzeit konnte nicht zuverlässig gelesen werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:201
+msgid "GStreamer konnte das Video nicht vollständig untersuchen. Möglicherweise fehlt ein Decoder."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:269
+msgid "Die Ausgabe erfüllt die Prüfung auf MP4, H.264, 8-Bit-4:2:0, Mobilauflösung, Laufzeit oder vorhandenen AAC-Ton nicht. Das Original bleibt erhalten."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:290
+msgid "Nur vorhandene lokale Videos im Upload-Verzeichnis können verarbeitet werden. Ausgelagerte Medien bleiben unverändert."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:323
+msgid "Dieser Anhang ist kein Video."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:327
+msgid "Dieses Video wird von S3 ausgeliefert. Eine lokale Kopie wird nicht ersetzt, da die veröffentlichte Videodatei dadurch nicht aktualisiert würde."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:334
+msgid "Unverändert: Für die sichere Beibehaltung bestehender URLs werden nur Dateien mit .mp4-Endung ersetzt. Andere Endungen benötigen serverseitige Weiterleitungen auf eine neue MP4-Datei."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:362
+msgid "Das Video konnte nicht zuverlässig geprüft werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:377
+msgid "Codec bereits handykompatibel; Dateigröße oder Auflösung kann noch optimiert werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:377
+msgid "Bereits handykompatibel. Keine weitere Optimierung erforderlich."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:377
+msgid "Codec-Anpassung für Mobilgeräte erforderlich."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:380
+msgid "Das Prüfergebnis konnte nicht gespeichert werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:418
+msgid "Die Videostatistik konnte nicht gelesen werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:458
+msgid "Das Video blieb unverändert, aber sein Prüfergebnis konnte nicht gespeichert werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:465
+msgid "Die Verarbeitungssperre konnte nicht erstellt werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:469
+msgid "Eine Videooptimierung läuft bereits. Bitte später erneut versuchen."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:484
+msgid "Videodatei oder Upload-Verzeichnis ist nicht beschreibbar."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:500
+msgid "Das Original konnte nicht vollständig gelesen werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:503
+msgid "Bereits mit diesen Videoeinstellungen optimiert."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:512
+msgid "Ungültige Videomaße oder Laufzeit."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:518
+msgid "Bereits handykompatibel. Komprimierung und Skalierung sind nicht erforderlich; Original unverändert."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:522
+msgid "Nicht genügend freier Speicher für eine sichere temporäre Konvertierung."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:526
+msgid "Temporäre Videodatei konnte nicht im Originalverzeichnis angelegt werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:539
+msgid "Der Encoder hat keine Videodaten ausgegeben. Das Original bleibt erhalten."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:548
+msgid "WordPress konnte die geprüfte Ausgabe nicht als Video lesen. Das Original bleibt erhalten."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:555
+msgid "Das Original wurde zwischenzeitlich verändert. Es wird nicht ersetzt."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:558
+msgid "Bereits handykompatibel. Die Komprimierung brachte keine kleinere Datei; das Original bleibt unverändert."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:566
+msgid "Am Sicherungspfad liegt bereits eine Datei. Sie wird nicht überschrieben; bitte zuerst die Originalsicherung prüfen."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:572
+msgid "Die Originalsicherung konnte nicht sicher angelegt werden. Das Original wird nicht ersetzt."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:576
+msgid "Die Originalsicherung konnte nicht registriert werden. Das Original wird nicht ersetzt."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:579
+msgid "Die gespeicherte Originalsicherung fehlt. Bitte zuerst die Sicherung prüfen."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:583
+msgid "Die geprüfte Ausgabe konnte nicht atomar eingesetzt werden. Das Original bleibt erhalten."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:589
+msgid "Das Video wurde erfolgreich konvertiert, aber seine WordPress-Metadaten konnten nicht gespeichert werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:598
+msgid "Geprüft: MP4, H.264, 8-Bit-4:2:0 und bei vorhandenem Ton AAC. URL unverändert."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:601
+msgid "Das Video wurde erfolgreich konvertiert, aber das Ergebnis konnte nicht gespeichert werden. Bitte die Datenbankverbindung prüfen."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:624
+msgid "Der Videoauftrag konnte nicht für WP-Cron gespeichert werden."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:624
+msgid "Videooptimierung wartet auf WP-Cron."
+msgstr ""
+
+#: lib/class-ps-smush-video.php:633
+msgid "Automatische Videooptimierung wurde deaktiviert."
+msgstr ""
+
+#: lib/class-ps-smush.php:194
+msgid "Dateipfad ist leer"
+msgstr ""
+
+#: lib/class-ps-smush.php:197
+#, php-format
+msgid "%s wurde nicht gefunden"
+msgstr ""
+
+#: lib/class-ps-smush.php:200
+#, php-format
+msgid "%s ist nicht beschreibbar"
+msgstr ""
+
+#: lib/class-ps-smush.php:210
+#, php-format
+msgid "Übersprungen (%s), Bild nicht gefunden. Anhang: %s"
+msgstr ""
+
+#: lib/class-ps-smush.php:213
+#, php-format
+msgid "Übersprungen (%s), Größenlimit überschritten. Anhang: %s"
+msgstr ""
+
+#: lib/class-ps-smush.php:231
+msgid "Unbekannter API-Fehler"
+msgstr ""
+
+#: lib/class-ps-smush.php:666
+msgid "Temporäre Datei für die Optimierung konnte nicht erstellt werden."
+msgstr ""
+
+#: lib/class-ps-smush.php:721
+#: lib/class-ps-smush.php:795
+#: lib/class-ps-smush.php:868
+msgid "Dieses Bildformat wird nicht unterstützt."
+msgstr ""
+
+#: lib/class-ps-smush.php:824
+msgid "Kein unterstützter lokaler Bildoptimierer verfügbar (Imagick/GD)."
+msgstr ""
+
+#: lib/class-ps-smush.php:830
+msgid "JPEG-Optimierung ist in GD nicht verfügbar."
+msgstr ""
+
+#: lib/class-ps-smush.php:834
+#: lib/class-ps-smush.php:846
+#: lib/class-ps-smush.php:861
+msgid "Bild konnte für die Optimierung nicht gelesen werden."
+msgstr ""
+
+#: lib/class-ps-smush.php:839
+#: lib/class-ps-smush.php:854
+#: lib/class-ps-smush.php:866
+msgid "Optimiertes Bild konnte nicht gespeichert werden."
+msgstr ""
+
+#: lib/class-ps-smush.php:842
+msgid "PNG-Optimierung ist in GD nicht verfügbar."
+msgstr ""
+
+#: lib/class-ps-smush.php:857
+msgid "GIF-Optimierung ist in GD nicht verfügbar."
+msgstr ""
+
+#: lib/class-ps-smush.php:1005
+#, php-format
+msgid "%d Bilder reduziert "
+msgstr ""
+
+#: lib/class-ps-smush.php:1005
+msgid "Reduziert "
+msgstr ""
+
+#: lib/class-ps-smush.php:1009
+#, php-format
+msgid "um %s %s"
+msgstr ""
+
+#: lib/class-ps-smush.php:1015
+#, php-format
+msgid "<br /> Image Size: %s"
+msgstr ""
+
+#: lib/class-ps-smush.php:1051
+msgid "Detaillierte Statistiken für alle Bildgrößen"
+msgstr ""
+
+#: lib/class-ps-smush.php:1095
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:251
+msgid "Noch nicht verarbeitet"
+msgstr ""
+
+#: lib/class-ps-smush.php:1410
+#, php-format
+msgid "Beim Hochladen eines Bildes erstellt WordPress automatisch %s Thumbnail-Größen, die auf deinen Seiten genutzt werden. WordPress speichert auch das Originalbild in voller Größe, aber da es normalerweise nicht eingebettet ist, wird es nicht optimiert. Diese Einstellung lässt sich ändern."
+msgstr ""
+
+#: lib/class-ps-smush.php:1413
+msgid "Das Bild konnte nicht optimiert werden, da es das 1 MB-Limit überschreitet. Mit der Pro-Version können Bilder bis zu 32 MB optimiert werden."
+msgstr ""
+
+#: lib/class-ps-smush.php:1415
+msgid " Übersprungen"
+msgstr ""
+
+#: lib/class-ps-smush.php:1437
+#: lib/nextgen-integration/class-ps-smush-nextgen-stats.php:427
+msgid "Bildgröße"
+msgstr ""
+
+#: lib/class-ps-smush.php:1438
+#: lib/nextgen-integration/class-ps-smush-nextgen-stats.php:428
+msgid "Einsparungen"
+msgstr ""
+
+#: lib/class-ps-smush.php:1686
+msgid "Originalbild wiederherstellen."
+msgstr ""
+
+#: lib/class-ps-smush.php:1686
+msgid "Bild wiederherstellen"
+msgstr ""
+
+#: lib/class-ps-smush.php:1734
+msgid "Bild inkl. Originaldatei optimieren."
+msgstr ""
+
+#: lib/class-ps-smush.php:1734
+msgid "Bild neu optimieren"
+msgstr ""
+
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:59
+msgid "Bulk Medienoptimierung"
+msgstr ""
+
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:379
+#, php-format
+msgid "In deiner %sGalerie%s wurden noch keine Bilder gefunden – es gibt nichts zu optimieren! Lade Bilder hoch, lade diese Seite neu und leg los!"
+msgstr ""
+
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:398
+#, php-format
+msgid "%s, you have %s%s%d%s attachment%s that needs smushing!"
+msgid_plural "%s, you have %s%s%d%s attachments%s that need smushing!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:413
+#, php-format
+msgid "Enable Super-Optimierung in the %sEinstellungen%s aktivieren, um noch mehr zu sparen – bei kaum sichtbarem Qualitätsverlust."
+msgstr ""
+
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:428
+#, php-format
+msgid "Einzelne Bilder über deinen %sGalerie-Manager%s optimieren"
+msgstr ""
+
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:428
+msgid "Galerien verwalten"
+msgstr ""
+
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:484
+msgid "Super-optimierte Bilder"
+msgstr ""
+
+#: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:492
+#, php-format
+msgid "%sDISABLED%s"
+msgstr ""
+
+#: lib/nextgen-integration/class-ps-smush-nextgen-bulk.php:31
+msgid "Optimierungs-Anfrage abgelaufen. Du kannst einen höheren Wert ( > 60 ) für `PS_SMUSH_API_TIMEOUT` setzen."
+msgstr ""
+
+#: lib/nextgen-integration/class-ps-smush-nextgen-stats.php:193
+#, php-format
+msgid "Reduziert um %s (  %01.1f%% )"
+msgstr ""

@@ -707,7 +707,7 @@ if ( ! class_exists( 'WpSmushBulkUi' ) ) {
 				</div>
 			</div>
 			<div class="ps-smush-count tc">
-                <?php printf( esc_html__( "%s%d%s deiner Medienanhänge wurden optimiert." ), '<span class="ps-smush-images-percent">', $smushed_pc, '</span>%' ); ?>
+                <?php printf( esc_html__( "%s%d%s deiner Medienanhänge wurden optimiert.", 'ps-medienoptimierung' ), '<span class="ps-smush-images-percent">', $smushed_pc, '</span>%' ); ?>
             </div>
             <div class="smush-cancel-button-wrapper">
                 <button type="button"
