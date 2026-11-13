@@ -159,7 +159,7 @@ msgstr "When compressing a PNG file, the plugin checks whether converting it to 
 #: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:78
 #: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:80
 msgid "Medienoptimierung"
-msgstr "PS Medienoptimierung"
+msgstr "Media Optimization"
 
 #: lib/class-ps-smush-admin.php:388
 #: lib/nextgen-integration/class-ps-smush-nextgen-admin.php:148
