@@ -107,6 +107,12 @@ In einer Multisite-Installation kannst du die Einstellungen gemeinsam über die 
 
 Die Sammelverarbeitung bleibt auf der jeweiligen Website und verarbeitet deren Medien.
 
+## Deutsch oder Englisch
+
+Die Oberfläche folgt der Sprache deiner Website beziehungsweise deines Benutzerprofils. Neben Deutsch wird Englisch (USA und Großbritannien) unterstützt – auch für Einstellungen, Meldungen und die Videoverarbeitung.
+
+Die Website-Sprache wählst du unter **Einstellungen → Allgemein**. Wenn du nur deine eigene Verwaltungsoberfläche umstellen möchtest, ändere die Sprache unter **Benutzer → Profil**. Einen zusätzlichen Sprachschalter im Plugin brauchst du nicht.
+
 ## Was dein Hosting können muss
 
 Für Bilder verwendet das Plugin die Bildverarbeitung deines Servers. Für Videos muss **FFmpeg mit ffprobe oder GStreamer** mit passender H.264- und AAC-Unterstützung verfügbar sein.

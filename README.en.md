@@ -32,7 +32,7 @@ The overview shows what is already done, what still needs attention, and how muc
 ## Get started in a few steps
 
 1. Install and activate **PS Medienoptimierung** through your plugin administration.
-2. Open **Media → Medienoptimierung**.
+2. Open **Media → Media Optimization**.
 3. Adjust the image and video options in the shared settings form and save your changes.
 4. Start the relevant **bulk optimization** to process existing media.
 
@@ -61,11 +61,11 @@ Silent videos stay silent. Existing video URLs and filenames are preserved.
 
 ### Check first, then optimize
 
-Use **Recheck videos ("Videos erneut prüfen")** to identify compatible videos and see what still needs optimization, without changing the files.
+Use **Recheck videos** to identify compatible videos and see what still needs optimization, without changing the files.
 
 **Video bulk optimization** then processes the remaining videos one at a time. You can see progress, results, errors, and file sizes before and after processing. Videos already processed with the same settings are not compressed again on every run.
 
-Keep the page open during bulk processing. **Stop after the current video ("Nach aktuellem Video anhalten")** ends the run once the video being processed has finished.
+Keep the page open during bulk processing. **Stop after the current video** ends the run once the video being processed has finished.
 
 ### You control quality and size
 
@@ -97,7 +97,7 @@ The video section shows:
 - Errors and unsupported files.
 - **Storage savings and percentages**, along with file sizes before and after processing.
 
-Under **Results and errors → Clear log ("Ergebnisse und Fehler" → "Protokoll leeren")**, you can permanently clear the displayed results list. Optimization records, savings, and unresolved errors in the statistics are preserved. New messages will appear in the list again.
+Under **Results and errors → Clear log**, you can permanently clear the displayed results list. Optimization records, savings, and unresolved errors in the statistics are preserved. New messages will appear in the list again.
 
 ## One place for everything — including multisite
 
@@ -106,6 +106,12 @@ Image and video options live on the same media optimization page and use the sam
 On a multisite installation, you can manage settings centrally through the network administration. When central control is enabled, subsites inherit those settings. Otherwise, each site manages its own settings.
 
 Bulk processing stays on the individual site and processes that site's media.
+
+## German or English
+
+The interface follows your website or user profile language. German and English (US and UK) are supported, including settings, messages, and video processing.
+
+Choose the website language under **Settings → General**. To change only your own administration language, use **Users → Profile**. No separate language switch in the plugin is needed.
 
 ## What your hosting needs
 

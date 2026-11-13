@@ -68,6 +68,10 @@ Das Original wird erst ersetzt, nachdem Format, Laufzeit, Ton und vollständige 
 
 Lass die Seite während der Bulk-Optimierung geöffnet. Anhalten beendet sie nach dem laufenden Video. Die Uploadautomatik läuft unabhängig davon im Hintergrund über WordPress-Aufgaben. Bei langen Videos oder verzögerter Verarbeitung bitte den Hoster nach geeigneten Zeitlimits und regelmäßig ausgeführten WordPress-Aufgaben fragen. Temporär wird zusätzlicher freier Speicher benötigt. Nach erfolgreicher Konvertierung gegebenenfalls vorhandene Browser- oder CDN-Caches leeren.
 
+= Deutsch oder Englisch =
+
+Die Oberfläche folgt der Sprache deiner Website beziehungsweise deines Benutzerprofils. Deutsch und Englisch (USA und Großbritannien) werden unterstützt. Die Website-Sprache stellst du unter Einstellungen -> Allgemein ein; deine persönliche Verwaltungssprache unter Benutzer -> Profil. Ein zusätzlicher Sprachschalter im Plugin ist nicht nötig.
+
 = Servervoraussetzungen für Videos =
 
 Der Server benötigt FFmpeg mit ffprobe oder GStreamer, jeweils mit H.264- und AAC-Unterstützung. Die Programme müssen für PHP verfügbar sein. Der Encoderstatus wird in den Einstellungen angezeigt. Ist kein geeigneter Encoder vorhanden, erscheint eine verständliche Meldung – bitte dann den Hoster um Einrichtung bitten. Die Bildoptimierung funktioniert unabhängig davon weiter.
